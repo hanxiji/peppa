@@ -1,0 +1,85 @@
+        body{
+            position: relative;
+        }
+        #all{
+            width: 100%;
+            height: 100%
+        }
+        #top{
+            height: 100px;
+            background-color: #f0f8ff;
+            position: relative;
+            left: 0px;
+            float: right;
+            width: 100%;
+        }
+        div{
+            margin: 0px;
+        }
+        a{
+            text-decoration: none;
+            color: #2f2f4f;
+        }
+        a:hover{
+            color: #1c86ee;
+        }
+        span{
+            display: inline-block;
+            float: right;
+        }
+        #user{
+            position: relative;           
+        }
+        #userMessage{
+            position: relative;
+            left: 500px;
+            top: 40px;
+        }
+        #choice{
+            float: left;
+            height: 500px;
+            width: 200px;
+            padding: 5px 0px 0px 0px;
+        }
+        #detail{
+            background-color: #f0f8ff;
+            width: 500px;
+            border: 0px;
+            height: 600px;
+        }
+        .userM{
+            color: grey;
+            width: 70px;
+            display:inline-block;
+            height:30px;
+            float: left;
+        }
+        #balance{
+            width: 100px;
+        }
+        input{
+            width: 150px; 
+            height: 18px;        
+        }        
+        .operation{
+        width: 60px;
+        height: 35px;
+        } 
+        ul{
+            list-style: none;
+        }
+        li{
+            height: 40px;
+        }
+        .address{
+            color: grey;
+            width: 110px;
+            display:inline-block;
+            height:30px;
+        }
+        #addInput{
+            border-radius: 2px;
+        }
+        .addressInput{
+            width: 120px;
+        }

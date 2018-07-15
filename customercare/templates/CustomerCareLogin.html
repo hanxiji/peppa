@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客服登录</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/CustomerCareLogin.css">
+</head>
+<body>
+    <div id="container">
+        <h2 class="title">
+                客服登录
+        </h2>      
+        <p>
+            <img src="/static/img/logo/logo.png">
+        </p>
+        <div id="login">
+            <p style="color: #f23030; text-align: center; font-size: 15px; margin-bottom: 10px;">  
+                {{message}}
+            </p>
+            <form action="/customercarelogin/" method="post">
+                {%csrf_token%}
+                <!-- 第一行　客服名 -->
+                <div class="form-line">
+                    <p>客服名称</p>
+                    <div>
+                        <input type="text" name="ccname" class="form-control">
+                    </div>
+                </div>
+                <!-- 第二行：密码 -->
+                <div class="form-line">
+                    <p>密码</p>
+                    <div>
+                        <input type="password" name="ccpwd" class="form-control">
+                    </div>
+                </div>
+                <!-- 第三行：登录 -->
+                <div class="form-line">
+                    <p></p>
+                    <div>
+                        <input type="submit" value="登录" class="btnLogin">
+                    </div>
+                </div>                
+            </form>
+        </div>        
+    </div>
+</body>
+</html>

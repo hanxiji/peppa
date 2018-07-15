@@ -1,0 +1,332 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>退换货管理</title>
+		<link href="{%static 'css/admin.css'%}" rel="stylesheet" type="text/css">
+		<link href="{%static 'css/amazeui.css'%}" rel="stylesheet" type="text/css">
+		<link href="{%static 'css/personal.css'%}" rel="stylesheet" type="text/css">
+		<link href="{%static 'css/orstyle.css'%}" rel="stylesheet" type="text/css">
+		<link href="{%static '/css/header_150803.css'%}" rel="stylesheet" type="text/css">
+		<link href="{%static '/css/comment.min.css'%}" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="{%static 'js/jquery.min.js'%}"></script>
+		<script src="{%static 'js/amazeui.js'%}"></script>
+	</head>
+	<body>
+		<div id="hd">
+			<div id="tools">
+				<div class="tools">
+					<div class="ddnewhead_operate" dd_name="顶链接">
+						<ul class="ddnewhead_operate_nav">
+							<li class="my_dd">
+								<a target="_blank" href="/userMessage/" id="a_myddchannel">我的Peppa</a>
+							</li>
+							<li class="hover ">
+								<a target="_blank" href="/customercareuser/" id="a_bzzxchannel">客户服务</a>
+							</li>
+						</ul>
+						<div class="new_head_znx" id="znx_content" style="display:none;">
+						</div>
+						<div class="ddnewhead_welcome" display="none;">
+							<span id="nickname">欢迎光临Peppa，
+								<a dd_name="登录" href="/login/" target="_self" rel="nofollow" class="login_link" id="login_link">请登录</a>
+							</span>
+							<script type="text/javascript">
+							var user1 = {{ user1|safe }};
+							if(user1.login==true){
+							var a = document.getElementById("login_link");
+							a.innerText = user1.uname;
+							a.href = "/loginout/";
+							}
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="header_end"></div>
+			<div style="position:relative;" class="logo_line_out">
+			</div>
+			<div class="nav_top" dd_name="一级导航条">
+				<div class="nav_top">
+					<ul>
+						<li class="all">
+							<a href="/index/" id="a_category" name="cate" class="sort_button" onmouseover="showCategory('a_category','__ddnav_sort','//static.dangdang.com/js/header2012/categorydata_new.js?20180115');" onmouseout="closeCategory('__ddnav_sort');" dd_name="全部商品分类" target="_blank">全部商品分类</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/小说" target="_blank">小说</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/文学" target="_blank">文学</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/艺术" target="_blank">艺术</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/青春文学" target="_blank">青春文学</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/休闲_爱好" target="_blank">休闲_爱好</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/孕产_胎教" target="_blank">孕产_胎教</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/动漫_幽默" target="_blank">动漫_幽默</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/烹饪_美食" target="_blank">烹饪_美食</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/时尚_美妆" target="_blank">时尚_美妆</a>
+						</li>
+						<li>
+							<a name="nav1" href="/find/旅游_地图" target="_blank">旅游_地图</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap">
+					<div class="user-order">
+						<!--标题 -->
+						<div class="am-cf am-padding">
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">退换货管理</strong> / <small>Change</small></div>
+						</div>
+						<hr/>
+						<div class="am-tabs am-tabs-d2 am-margin" data-am-tabs>
+							<ul class="am-avg-sm-2 am-tabs-nav am-nav am-nav-tabs">
+								<li class="am-active"><a href="#tab1">退货管理</a></li>
+							</ul>
+							<div class="am-tabs-bd">
+								<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+									<div class="order-top">
+										<div class="th th-item">
+											<td class="td-inner">退货单</td>
+										</div>
+										<div class="th th-orderprice th-price">
+											<td class="td-inner">交易金额</td>
+										</div>
+										<div class="th th-changeprice th-price">
+											<td class="td-inner">退款金额</td>
+										</div>
+										<div class="th th-status th-moneystatus">
+											<td class="td-inner">交易状态</td>
+										</div>
+										<div class="th th-change th-changebuttom">
+											<td class="td-inner">交易操作</td>
+										</div>
+									</div>
+									{%for reject in rejectList%}
+									<div class="order-main">
+										<div class="order-list">
+											<div class="order-title">
+												<div class="dd-num">退款编号：<a href="javascript:;">{{reject.id}}</a></div>
+												<span>申请时间：{{reject.rejectTime}}</span>
+												<!--    <em>店铺：小桔灯</em>-->
+											</div>
+											<div class="order-content">
+												<div class="order-left">
+													<ul class="item-list">
+														<li class="td td-item">
+															<div class="item-pic">
+																<a href="#" class="J_MakePoint">
+																	<img src="{%static '/'%}{{reject.img.img_url}}" class="itempic J_ItemImg">
+																</a>
+															</div>
+															<div class="item-info">
+																<div class="item-basic-info">
+																	<a href="#">
+																		<p>所属订单编号为{{reject.purchase.id}}</p>
+																		<!-- <p class="info-little">颜色：12#川南玛瑙
+																		<br/>包装：裸装 </p> -->
+																	</a>
+																</div>
+															</div>
+														</li>
+														<ul class="td-changeorder">
+															<li class="td td-orderprice">
+																<div class="item-orderprice">
+																	<span>交易金额：</span>{{reject.purchase.orderAmount}}
+																</div>
+															</li>
+															<li class="td td-changeprice">
+																<div class="item-changeprice">
+																	<span>退款金额：</span>{{reject.rejectAmount}}
+																</div>
+															</li>
+														</ul>
+														<div class="clear"></div>
+													</ul>
+													<div class="change move-right">
+														<li class="td td-moneystatus td-status">
+															<div class="item-status">
+																<p class="Mystatus">{{reject.rejectState}}</p>
+															</div>
+														</li>
+													</div>
+													<li class="td td-change td-changebutton">
+														<a href="{%url 'showrefund' reject.id%}">
+															<div class="am-btn am-btn-danger anniu">
+															查询详情</div>
+														</a>
+													</li>
+												</div>
+											</div>
+										</div>
+									</div>
+									{%endfor%}
+								</div>
+								<div class="am-tab-panel am-fade" id="tab2">
+									<div class="order-top">
+										<div class="th th-item">
+											<td class="td-inner">商品</td>
+										</div>
+										<div class="th th-orderprice th-price">
+											<td class="td-inner">交易金额</td>
+										</div>
+										<div class="th th-changeprice th-price">
+											<td class="td-inner">退款金额</td>
+										</div>
+										<div class="th th-status th-moneystatus">
+											<td class="td-inner">交易状态</td>
+										</div>
+										<div class="th th-change th-changebuttom">
+											<td class="td-inner">交易操作</td>
+										</div>
+									</div>
+									<div class="order-main">
+										<div class="order-list">
+											<div class="order-title">
+												<div class="dd-num">退款编号：<a href="javascript:;">1601430</a></div>
+												<span>申请时间：2015-12-20</span>
+												<!--    <em>店铺：小桔灯</em>-->
+											</div>
+											<div class="order-content">
+												<div class="order-left">
+													<ul class="item-list">
+														<li class="td td-item">
+															<div class="item-pic">
+																<a href="#" class="J_MakePoint">
+																	<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+																</a>
+															</div>
+															<div class="item-info">
+																<div class="item-basic-info">
+																	<a href="#">
+																		<p>美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+																		<p class="info-little">颜色：12#川南玛瑙
+																		<br/>包装：裸装 </p>
+																	</a>
+																</div>
+															</div>
+														</li>
+														<ul class="td-changeorder">
+															<li class="td td-orderprice">
+																<div class="item-orderprice">
+																	<span>交易金额：</span>72.00
+																</div>
+															</li>
+															<li class="td td-changeprice">
+																<div class="item-changeprice">
+																	<span>退款金额：</span>70.00
+																</div>
+															</li>
+														</ul>
+														<div class="clear"></div>
+													</ul>
+													<div class="change move-right">
+														<li class="td td-moneystatus td-status">
+															<div class="item-status">
+																<p class="Mystatus">退款成功</p>
+															</div>
+														</li>
+													</div>
+													<li class="td td-change td-changebutton">
+														<a href="record.html">
+															<div class="am-btn am-btn-danger anniu">
+															钱款去向</div>
+														</a>
+													</li>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--底部-->
+				<div class="footer">
+					<div class="footer-hd">
+						<p>
+							<b>|</b>
+							<a href="/index/">商城首页</a>
+							<b>|</b>
+							
+						</p>
+					</div>
+					<div class="footer-bd">
+						<p>
+							<em>© 2015-2025 脱发工作室 版权所有</em>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- <aside class="menu">
+						<ul>
+									<li class="person active">
+												<a href="index.html"><i class="am-icon-user"></i>个人中心</a>
+									</li>
+									<li class="person">
+												<p><i class="am-icon-newspaper-o"></i>个人资料</p>
+												<ul>
+															<li> <a href="information.html">个人信息</a></li>
+															<li> <a href="safety.html">安全设置</a></li>
+															<li> <a href="address.html">地址管理</a></li>
+															<li> <a href="cardlist.html">快捷支付</a></li>
+												</ul>
+									</li>
+									<li class="person">
+												<p><i class="am-icon-balance-scale"></i>我的交易</p>
+												<ul>
+															<li><a href="order.html">订单管理</a></li>
+															<li> <a href="change.html">退款售后</a></li>
+															<li> <a href="comment.html">评价商品</a></li>
+												</ul>
+									</li>
+									<li class="person">
+												<p><i class="am-icon-dollar"></i>我的资产</p>
+												<ul>
+															<li> <a href="points.html">我的积分</a></li>
+															<li> <a href="coupon.html">优惠券 </a></li>
+															<li> <a href="bonus.html">红包</a></li>
+															<li> <a href="walletlist.html">账户余额</a></li>
+															<li> <a href="bill.html">账单明细</a></li>
+												</ul>
+									</li>
+									<li class="person">
+												<p><i class="am-icon-tags"></i>我的收藏</p>
+												<ul>
+															<li> <a href="collection.html">收藏</a></li>
+															<li> <a href="foot.html">足迹</a></li>
+												</ul>
+									</li>
+									<li class="person">
+												<p><i class="am-icon-qq"></i>在线客服</p>
+												<ul>
+															<li> <a href="consultation.html">商品咨询</a></li>
+																						<li> <a href="suggest.html">意见反馈</a></li>
+															
+															<li> <a href="news.html">我的消息</a></li>
+												</ul>
+									</li>
+						</ul>
+			</aside> -->
+		</div>
+	</body>
+</html>

@@ -1,0 +1,110 @@
+body,h2,p{
+    margin:0;
+}
+
+#container{
+    width:700px;
+    margin:100px auto;
+    overflow:hidden;
+    text-align: center;
+}
+
+#container h2.title{
+    color:#adadad;
+    border-bottom:1px solid #adadad;
+    padding-bottom:20px;
+    font-weight:normal;
+    margin-bottom:40px;
+}
+
+#container>p{
+    float:left;
+    /*相对定位：配合 a 标记做绝对定位*/
+    position:relative;
+}
+
+#container>p>a{
+    /*绝对定位，位置偏移，宽度，高度，边框，倒角，文本：水平居中对齐，行高，取消下划线，颜色，大小*/
+    position:absolute;
+    left:185px;
+    bottom:30px;
+    width:130px;
+    height:40px;
+    border:1px solid #64a131;
+    box-sizing:border-box;
+    border-radius:5px;
+    text-align:center;
+    line-height:40px;
+    text-decoration:none;
+    color:#64a131;
+    font-size:18px;
+}
+
+#login{
+    float:left;
+    position: relative;
+    left: 10%;
+}
+
+#login .form-line{
+    overflow:hidden;
+    margin-bottom:25px;
+}
+#login .form-line>p{
+    float:left;
+    margin:0;
+    color:#999;
+    width:64px;
+    text-align:center;
+    margin-right:42px;
+    line-height:40px;
+    height:40px;
+}
+#login .form-line>div{
+    float:left;
+    width:300px;
+}
+#login .form-control{
+    /*300*40*/
+    /*box-sizing,宽度，高度，边框，左内边距*/
+    box-sizing:border-box;
+    width:300px;
+    height:40px;
+    border:1px solid #ccc;
+    padding-left:10px;
+    /*取消轮廓*/
+    outline:none;
+}
+
+#login .form-control:focus{
+    border-color:#64a131;
+    box-shadow:0px 0px 3px #64a131;
+}
+
+#login .form-line .btnLogin{
+    /*宽度，高度，取消边框，取消轮廓，背景颜色，边框倒角，文字颜色，文字大小，box-sizing*/
+    width:145px;
+    height:40px;
+    border:none;
+    outline:none;
+    background-color: #f23030;
+    border-radius:5px;
+    color:#fff;
+    font-size:18px;
+    box-sizing:border-box;
+    text-decoration:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

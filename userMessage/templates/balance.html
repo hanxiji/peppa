@@ -1,0 +1,11 @@
+{%extends 'userMessage.html'%}
+
+{%block title%}
+余额
+{%endblock%}
+
+{%block change%}
+    <p id="p-address" style="top: 200px;left: -80px;">您当前余额为</p>
+    <input type="text" name="balance" value="{{user.balance}}" style="position: relative;top: 200px; left: -50px; width: 70px; border: 1px solid #ff6347; border-radius: 5px; padding: 5px 10px;" readonly="readonly">
+
+{%endblock%}

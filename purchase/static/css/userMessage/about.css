@@ -1,0 +1,229 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+ul, li {
+    list-style: none;
+}
+
+img {
+    border: none;
+}
+
+.clear {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+/* 共用  */
+body {
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #404040
+}
+
+a {
+    color: #1a66b3;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1a66b3;
+    text-decoration: underline;
+}
+
+/*页面*/
+.layout_main {
+    margin: 0 auto;
+    width: 960px;
+    color: #878787;
+    text-align: left;
+}
+
+.about_head {
+    margin: 2px 0 5px;
+    padding: 2px 0 5px;
+}
+
+.about_nav {
+    float: left;
+    width: 174px;
+}
+
+.about_nav h4 {
+    border-bottom: 1px solid #EAEAEA;
+    font-size: 0;
+    height: 31px;
+    lin-height: 0;
+    overflow: hidden;
+    width: 134px;
+}
+
+.about_nav ul {
+    margin-left: 35px;
+}
+
+.about_nav ul li {
+    background: url(http://img4.ddimg.cn/00030/job/ico_dot.gif) no-repeat;
+    margin-top: 13px;
+    padding: 0 0 0 17px;
+}
+
+.about_nav ul li a {
+    color: #878787;
+}
+
+.about_nav ul li a:hover {
+    color: #f60;
+}
+
+.about_nav ul li.black a, .about_nav ul li.black a:hover {
+    color: #404040;
+    cursor: default;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about_nav .dd_brief {
+    background: url(http://img4.ddimg.cn/00038/job/about_brief.gif) no-repeat 0 0;
+    margin: 20px;
+    margin-top: 0;
+}
+
+.about_nav .dd_culture {
+    background: url(http://img4.ddimg.cn/00038/job/about_culture.gif) no-repeat 0 0;
+    border-top: 1px solid #EAEAEA;
+    margin: 20px;
+}
+
+.text_last {
+    padding-bottom: 8px;
+}
+
+.about_content {
+    float: right;
+}
+
+.about_content .title {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    width: 784px;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+}
+
+.intro_dd {
+    font-size: 14px;
+    font-weight: bold;
+    background: url("http://img4.ddimg.cn/00012/dang/about_dd.gif") no-repeat scroll 10px 25px transparent;
+    height: 56px;
+    padding-left: 10px;
+    width: 100px;
+    padding-top: 1px;
+}
+
+.title ul {
+    height: 52px;
+    padding-top: 20px;
+    background: url(http://img4.ddimg.cn/00012/dang/content_line.gif) no-repeat 0 bottom;
+}
+
+.title ul li {
+    float: left;
+}
+
+.bg_left {
+    margin-left: 17px;
+}
+
+.about_content .content {
+    clear: left;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    padding-bottom: 80px;
+    width: 784px;
+}
+
+.content p {
+    line-height: 20px;
+    padding-left: 65px;
+    width: 643px;
+    padding-top: 35px;
+}
+
+p.first {
+    background: url("http://img3.ddimg.cn/00111/logo/logo_dd.gif") no-repeat scroll 549px 30px transparent;
+    padding-right: 200px;
+    padding-top: 46px;
+    width: 460px;
+}
+
+p.last {
+    padding-bottom: 120px;
+}
+
+.about_nav ul li a:hover {
+    color: #ff6600;
+}
+
+.about_content img {
+    display: block;
+}
+
+a {
+    color: #878787;
+}
+
+ul.first {
+    padding-top: 36px;
+}
+
+ul.last {
+    padding-bottom: 120px;
+}
+
+.content ul.mission_list li {
+    line-height: 25px;
+}
+
+.mission_list {
+    padding-left: 88px;
+    width: 614px;
+}
+
+.mission_list li {
+    background: url("http://img4.ddimg.cn/00012/dang/ico_dot.gif") no-repeat scroll 0 5px transparent;
+    line-height: 20px;
+    padding-left: 10px;
+}
+
+.intro_title {
+    font-size: 14px;
+    font-weight: bold;
+    height: 56px;
+    padding-left: 10px;
+    width: 100px;
+}

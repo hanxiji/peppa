@@ -1,0 +1,11 @@
+#addressAdd p{
+    font-size: 24px;
+    font-family: '楷体';
+    position: relative;
+    right: 200px;
+    top: 40px;
+}
+#addressAdd form{
+    position: relative;
+    top: 100px;
+}

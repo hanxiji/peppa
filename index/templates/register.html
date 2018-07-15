@@ -1,0 +1,58 @@
+{%extends 'login.html'%}
+{%load static%}
+{%block title%}注册{%endblock%}
+{%block form%}<form action="/register/" method="post">
+				{%csrf_token%}
+				<div class="login-box">
+
+							<h3 class="title">用户注册</h3>
+
+							<div class="clear"></div>
+						
+						<div class="login-form">
+						<center><div><span style="color: red;text-align: center;">{{error_msg}}</span></div></center>
+								<div class="user-name">
+								    <label for="user">昵  称</label>
+								    {{form.userName}}
+                 				</div>
+							    <div class="user-name">
+								    <label for="user">手  机</label>
+								    {{form.userMobile}}
+                 				</div>
+                 				<div class="user-name">
+								    <label for="user">邮  箱</label>
+								    {{form.userEmail}}
+                 				</div>
+                 				<div class="user-pass">
+								    <label for="password">密  码</label>
+								    {{form.userPassword}}
+                 				</div>
+                 				<div class="user-pass">
+								    <label for="password">确  认</label>
+								    {{form.checkpwd}}
+                 				</div>
+                 				<!-- <div class="user-pass">
+								    {{form.captcha}}
+                 				</div> -->
+             				
+              		 	  
+           				</div>
+            
+            			<div class="login-links">
+								<a href="/login/" class="zcnext am-fr am-btn-default">登录</a>
+								<br />
+            			</div>
+						<div class="am-cf">
+							<input type="submit" name="" value="注 册" class="am-btn am-btn-primary am-btn-sm">
+						</div>
+					<!-- 	<div class="partner">		
+								<h3>合作账号</h3>
+							<div class="am-btn-group">
+								<li><a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a></li>
+								<li><a href="#"><i class="am-icon-weibo am-icon-sm"></i><span>微博登录</span> </a></li>
+								<li><a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a></li>
+							</div>
+						</div>	 -->
+				</div>
+				</form>
+{%endblock%}

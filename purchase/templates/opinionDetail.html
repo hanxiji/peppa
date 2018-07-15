@@ -1,0 +1,85 @@
+{%extends 'order.html'%}
+{%load static%}
+
+{% block center %}
+<div class="main">
+    <div class="order-detail">
+        <table>
+            <thead>
+                <tr class="order-nav">
+                    <th class="shop-pocket" style="width: 80px;">商品</th>
+                    <th class="shop-pocket">评价内容</th>
+                    <th class="shop-pocket">评价等级</th>
+                </tr>
+            </thead>
+            <form id="submit-form" method="post" action="/{{target}}/">
+            {%csrf_token%}
+                <tbody id="opinion">
+                    {% for odr in infomation %}
+                        {% for book in odr.books %}
+                            <tr class="order-inf">
+                                <td style="display:none">
+                                    <input type="hidden" value="{{book.bookID}}">
+                                </td>
+                                <td class="book" style="vertical-align: middle;width: 80px;">
+                                    <a href="/book/{{book.bookID}}">
+                                        <img border="0" src="{% static '/'%}{{book.bookPhoto}}" width="60" height="80">
+                                    </a>                                
+                                </td>
+                                <td align="center" style="vertical-align: middle;">
+                                    <input type="textarea" class="pymt" >
+                                </td>
+
+                                {% block button %}
+                                    <td align="center" style="vertical-align: middle;">
+                                        <select class="level">
+                                            <option value ="好评">好评</option>
+                                            <option value ="中评">中评</option>
+                                            <option value="差评">差评</option>
+                                        </select>
+                                    </td>
+                                {% endblock %}
+                            </tr>
+                            <input type="hidden" name="purchaseID" value="{{odr.prchID}}">
+                        {% endfor %}
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td class="button">
+                            <input type="button" value="{{button}}" class="submit-do" onclick="clickfunc();">
+                        </td>
+                    </tr>
+                </tbody>                        
+            </form>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    function clickfunc(){
+        var trList = $("#opinion").children("tr")
+        for (var i = 0; i < trList.length-1; i++) {
+            var tdArr = trList.eq(i).find("td");
+            var bookId = tdArr.eq(0).find("input").val();
+            var content = tdArr.eq(2).find("input").val();
+            var level = tdArr.eq(3).find("select").val();
+            var purchaseID = $("input[name='purchaseID']").val();
+            if (content == '') {
+                content = '默认'+level;
+            }
+            $.post(
+                "/post/",
+                { 
+                    purchaseID: purchaseID,
+                    bookId: bookId,
+                    content: content,
+                    level: level,
+                },
+            );
+        }
+        $("#submit-form").submit();
+    }
+</script>
+{% endblock %}

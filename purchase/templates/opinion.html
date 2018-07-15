@@ -1,0 +1,35 @@
+{%extends 'order.html'%}
+{%load static%}
+
+{% block center %}
+
+<div class="main">
+<div class="order-detail">
+    <table>
+        <thead>
+        <tr class="order-nav">
+            <th class="pdl">评价详情</th>
+            <th class="shop-price">评价等级</th>
+            <th class="shop-number">商品</th>
+        </tr>
+        </thead>
+        <thead>
+        {% for opn in infomation %}
+        <tr class="opinion-inf">
+            <td class="detail">
+                {{opn.opnDetail}}
+            </td>
+            <td class="level" align="center">{{opn.opnLevel}}</td>
+            <td class="book" align="center">
+                <a href="/book/{{opn.bookID}}">
+                    <img border="0", src="{% static '/'%}{{opn.bookPhoto}}", width="80", height="80">
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </thead>
+    </table>
+</div>
+</div>
+
+{% endblock %}

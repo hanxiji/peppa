@@ -1,0 +1,62 @@
+{%extends 'userMessage.html'%}
+
+{%block title%}
+地址修改
+{%endblock%}
+
+{%block change%}
+<div id="addressUpdate">
+    <p>修改收货地址</p>
+    <form method="post" action="/userAddressUpdate/{{updateAddress.id}}/" onsubmit="return checkUpdate()">
+    {%csrf_token%}
+    <div data-role="page" id="test">
+        <div class="ui-content">
+        <ul data-role="listview">
+            <li >
+                <span class="common">省市区选择</span><input type="text" value="{{updateAddress.address}}" hidden name="address" id="address"> 
+                <span id="city"> {{updateAddress.province}}-{{updateAddress.city}}-{{updateAddress.region}}</span>
+            </li>
+            <li>
+                <span class="common">详细地址</span>
+                <input type="text" name="addressDetail" value="{{updateAddress.detail}}">
+            </li>
+            <li>
+                <span class="common">收件人姓名</span>
+                <input id="recieverName" type="text"  name="recieverName" value="{{updateAddress.recieverName}}">
+            </li>
+            <li>
+                <span class="common">收件人手机号</span>
+                <input id="recieverMobile" type="text" name="recieverMobile" value="{{updateAddress.recieverMobile}}">
+            </li>
+        </ul>
+    </div>
+    </div>   
+    <input type="submit" value="修改" id="submit-do">
+    </form>  
+
+        <script type="text/javascript">
+        $("#city").click(function (e) {
+            SelCity(this,e);
+            console.log(this);
+        });
+
+        function checkUpdate(){
+            var recieverName = document.getElementById("recieverName").value;       
+            if (recieverName == "") {
+                alert("姓名不能为空");
+                return false;
+            };
+
+            var recieverMobile = document.getElementById("recieverMobile").value;
+            if(recieverMobile.length != 11) {
+                alert("请输入正确的电话号码");
+                return false;
+            }
+            var address;
+            address = document.getElementById('city').innerText;
+            document.getElementById('address').value = address;
+
+        }
+    </script>           
+</div>
+{%endblock%}

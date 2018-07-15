@@ -1,0 +1,580 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="{%static '/js/jquery.min.js'%}"></script>
+        <script src="{%static '/js/jquery.js'%}" type="text/javascript" charset="utf-8"></script>
+        <script src="{%static '/js/city.js'%}" type="text/javascript" charset="utf-8"></script>
+        <script src="{%static '/js/jilianxuanze.js'%}" type="text/javascript" charset="utf-8"></script>
+        <script>
+        var userAgent = navigator.userAgent.toLowerCase();
+        var deviceUA = ["iphone", "android", "mobile", "ipod", "mqqbrowser", "midp", "ucweb", "micromessenger"];
+        var preURL=window.location.href.split('.html')[0];
+        var productId=preURL.substring(preURL.lastIndexOf('/')+1)
+        for (var i = 0; i < deviceUA.length; i++) {
+        var regExp = new RegExp(deviceUA[i], "i");
+        if (userAgent.match(regExp) == deviceUA[i]) {
+        window.location.href=window.location.origin+'/touch/products/'+productId+'.html'+window.location.href.split('.html')[1]
+        }
+        }
+        </script>
+        <meta charset="UTF-8">
+        <title>{{book.bookName}}-Peppa书城</title>
+        <meta name="keywords" content="{{book.bookName}},{{book.author}},{{book.publisher}},{{bookTy}}">
+        <meta name="description" content="★describe">
+        <meta name="mobile-agent" content="format=html5;url=http://e.dangdang.com/touch/products/1900301848.html">
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="loginWindow" src="{%static '/js/LoginWindow.js'%}"></script>
+    </head>
+    <body ddt-page="p_25278677" onload="getShen()">
+        {%csrf_token%}
+        <div class="nTalk-xpush-container" style="margin: 0px;
+            padding: 0px;
+            border: none;
+            float: none;
+            max-width: none;
+            max-height: none;
+            clear: none;
+            left: auto;
+            top: auto;
+            text-align: left;
+            box-sizing: content-box;
+            color: rgb(0, 0, 0);
+            background-color: transparent;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            font-stretch: normal;
+            font-size: 12px;
+            line-height: 160%;
+            font-family: Arial, &quot;Microsoft YaHei&quot;;
+            width: 300px;
+            height: 100px;
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            display: none;">
+            <ul class="nTalk-xpush-message-wrapper" style="padding: 0px;
+                border: none;
+                float: none;
+                width: auto;
+                height: auto;
+                max-height: none;
+                clear: none;
+                position: static;
+                left: auto;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                text-align: left;
+                box-sizing: content-box;
+                color: rgb(0, 0, 0);
+                background-color: transparent;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-size: 12px;
+                line-height: 160%;
+                font-family: Arial, &quot;Microsoft YaHei&quot;;
+                margin: 30px 100px 0px 0px;
+                max-width: 230px;">
+                <li class="nTalk-xpush-message" style="margin: 0px;
+                    border: none;
+                    width: auto;
+                    height: auto;
+                    max-width: none;
+                    max-height: none;
+                    clear: none;
+                    left: auto;
+                    top: auto;
+                    text-align: left;
+                    box-sizing: content-box;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-stretch: normal;
+                    line-height: 160%;
+                    color: white;
+                    min-width: 60px;
+                    position: absolute;
+                    bottom: 45px;
+                    right: 100px;
+                    font-family: 微软雅黑;
+                    font-size: 14px;
+                    background: rgb(55, 134, 235);
+                    border-radius: 5px;
+                    display: inline;
+                    float: right;
+                    padding: 7px 2px 7px 6px;
+                    font-weight: 100;
+                    word-break: break-all;
+                    list-style: none;">
+                </li>
+                <div class="nTalk-xpush-message-angel" style="padding: 0px;
+                    border-right: none;
+                    border-image: initial;
+                    float: none;
+                    max-width: none;
+                    max-height: none;
+                    clear: none;
+                    right: auto;
+                    bottom: auto;
+                    text-align: left;
+                    box-sizing: content-box;
+                    color: rgb(0, 0, 0);
+                    background-color: transparent;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-size: 12px;
+                    line-height: 160%;
+                    font-family: Arial, &quot;Microsoft YaHei&quot;;
+                    display: block;
+                    position: absolute;
+                    left: 170px;
+                    top: 2px;
+                    margin: 30px;
+                    height: 0px;
+                    width: 0px;
+                    border-left: 5px solid rgb(55, 134, 235);
+                    border-top: 5px solid rgba(0, 0, 0, 0);
+                    border-bottom: 5px solid rgba(0, 0, 0, 0);">
+                </div>
+            </ul>
+            <span class="nTalk-xpush-message-count" style="margin: 0px;
+                padding: 0px;
+                border: none;
+                float: none;
+                max-width: none;
+                max-height: none;
+                clear: none;
+                left: auto;
+                bottom: auto;
+                box-sizing: content-box;
+                background-color: transparent;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: Arial, &quot;Microsoft YaHei&quot;;
+                position: absolute;
+                color: rgb(76, 151, 234);
+                top: 8px;
+                right: 4px;
+                width: 22px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                font-size: 18px;
+                z-index: 100000001;">
+            </span>
+            <img src="http://nt-download.imip.dangdang.com/js/b2b/siteid/respack_nt6.93/images/messageCountBkg.png" class="nTalk-xpush-message-count-bkg" style="margin: 0px;
+            padding: 0px;
+            border: none;
+            width: auto;
+            height: auto;
+            max-width: none;
+            max-height: none;
+            clear: none;
+            right: auto;
+            bottom: auto;
+            text-align: left;
+            box-sizing: content-box;
+            color: rgb(0, 0, 0);
+            background-color: transparent;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            font-stretch: normal;
+            font-size: 0px;
+            line-height: 0px;
+            font-family: Arial, &quot;Microsoft YaHei&quot;;
+            float: right;
+            position: absolute;
+            left: 210px;
+            top: 5px;
+            z-index: 100000000;
+            cursor: pointer;">
+        </div>
+        <div id="nTalk_post_hiddenElement" style="left: -10px;
+            top: -10px;
+            visibility: hidden;
+            display: none;
+            width: 1px;
+            height: 1px;">
+        </div>
+        <script>
+        var prodCurrItem = 0;
+        var isDestAreaEmpty = 0;
+        var isWidth = 1210 < screen.width;
+        !isWidth && (document.body.className='narrow_page');
+        var requestUrl = window.location.href;
+        var point = '';
+        if (requestUrl.indexOf("point") != -1){
+        point = requestUrl.substring(requestUrl.indexOf("point")+6, requestUrl.lastIndexOf("point")+5);
+        }
+        window.onunload = function (){window.scrollTo(0,0);}
+        var imipUrl = "{%static '/js/imip.js'%}";
+        var couponJs="{%static '/js/autoActivity.js'%}"
+        var localUrl = 'http://' + window.location.host + '/index.php';
+        var baseUrl = 'http://product.dangdang.com/';
+        var reg = /\.dangdang\.com/;
+        if (!window.localUrl.match(reg)) {
+        var script = document.createElement("script");
+        script.src = "{%static '/js/initCookie.js'%}";
+        $("head").append(script);
+        }
+        </script>
+        <script src="{%static '/js/item.js'%}" language="javaScript"></script>
+        <script type="text/javascript"></script>
+        <link href="{%static '/css/header_150803.css'%}" rel="stylesheet" type="text/css">
+        <link href="{%static '/css/comment.min.css'%}" rel="stylesheet" type="text/css">
+        <script charset="gb2312" type="text/javascript">var width = 1; narrow = 0;</script>
+        <script src="{%static '/js/pagetop2015_0827.js'%}" charset="gb2312" type="text/javascript"></script>
+        <script src="{%static '/js/dd.menu-aim.js'%}" charset="gb2312" type="text/javascript"></script>
+        <script charset="gb2312" type="text/javascript">var width = 1; narrow = 0;</script>
+        <div id="hd">
+            <div id="tools">
+                <div class="tools">
+                    <div class="ddnewhead_operate" dd_name="顶链接">
+                        <ul class="ddnewhead_operate_nav">
+                            <li class="my_dd">
+                                <a target="_blank" href="/userMessage/" id="a_myddchannel">我的Peppa</a>
+                            </li>
+                            <li class="hover ">
+                                <a target="_blank" href="/customercareuser/" id="a_bzzxchannel">客户服务</a>
+                            </li>
+                        </ul>
+                        <div class="new_head_znx" id="znx_content" style="display:none;">
+                        </div>
+                        <div class="ddnewhead_welcome" display="none;">
+                            <span id="nickname">欢迎光临Peppa，
+                                 <a dd_name="登录" href="/login/" target="_self" rel="nofollow" class="login_link" id="login_link">请登录</a>
+                            </span>
+                             <script type="text/javascript">
+                                var user1 = {{ user1|safe }};
+                                if(user1.login==true){
+                                    var a = document.getElementById("login_link");
+                                    a.innerText = user1.uname;
+                                    a.href = "/loginout/";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="header_end"></div>
+            <div style="position:relative;" class="logo_line_out">
+                <div class="logo_line" dd_name="搜索框">
+                    <div class="logo">
+                        <img src="{% static 'img/logo.png' %}" usemap="#logo_link" style="width: 100px;height: 100px;">
+                        <!-- <map name="logo_link" id="logo_link" dd_name="logo区">
+                        <area shape="rect" coords="0,18,200,93" href="http://www.dangdang.com/" title="当当" onfocus="this.blur();">
+                            <area shape="rect" coords="200,18,320,93" href="http://www.dangdang.com/" title="" target="_blank" onfocus="this.blur();">
+                                </map> -->
+                            </div>
+                            <div class="search">
+                                <form action="/findpage/" target="_blank" name="searchform" id="form_search_new" onsubmit="return searchsubmit();" method="GET">
+                                    <input class="text gray" name="key" id="key_S" autocomplete="off" onclick="key_onclick(event);" onfocus="key_onfocus(event);" onblur="key_onblur();" onbeforepaste="onpaste_search();" style="
+                                    width: 505px;
+                                    " type="text">
+                                    
+                                    <input id="search_btn" dd_name="搜索按钮" style="display:none" type="submit">
+                                    <input class="button" dd_name="搜索按钮" onclick="javascript:document.getElementById('search_btn').click();" type="button">
+                                </form>
+                            </div>
+                            <div id="suggest_key" class="suggest_key" style="display:none;"></div>
+                            <div class="ddnew_cart">
+                                <a href="/cart/" name="购物车" dd_name="购物车">
+                                    <i class="icon_card"></i>
+                                    购物车
+                                    <b id="cart_items_count">0</b>
+                                </a>
+                            </div>
+                            <div class="ddnew_order">
+                                <a target="_blank" href="/order/all/" name="我的订单" dd_name="我的订单" rel="nofollow">
+                                    我的订单
+                                    <b id="unpaid_num" style="color:#ff2832;font:bold 12px Arial;"></b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav_top" dd_name="一级导航条">
+                        <div class="nav_top">
+                            <ul>
+                                <li class="all">
+                                    <a href="/index/" id="a_category" name="cate" class="sort_button" onmouseover="showCategory('a_category','__ddnav_sort','//static.dangdang.com/js/header2012/categorydata_new.js?20180115');" onmouseout="closeCategory('__ddnav_sort');" dd_name="全部商品分类" target="_blank">全部商品分类</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/小说" target="_blank">小说</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/文学" target="_blank">文学</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/艺术" target="_blank">艺术</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/青春文学" target="_blank">青春文学</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/休闲_爱好" target="_blank">休闲_爱好</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/孕产_胎教" target="_blank">孕产_胎教</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/动漫_幽默" target="_blank">动漫_幽默</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/动漫_幽默" target="_blank">烹饪_美食</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/动漫_幽默" target="_blank">时尚_美妆</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/动漫_幽默" target="_blank">旅游_地图</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+                <div class="product_wrapper">
+                    <div class="breadcrumb" id="breadcrumb" dd_name="顶部面包屑导航" ddt-area="000">
+                        <a href="/find/{{bookTy}}" name="__Breadcrumb_pub" target="_blank">{{bookTy}}</a>
+                        <span class="gt">&gt;</span>
+                        <span class="gt">&gt;</span>
+                        <span>{{book.bookName}}</span>
+                        <div class="outlets" style="display:none" id="bread-crumb-outlets">
+                            <a class="o_close hidden" style="display: none;"></a>
+                            <a class="o_banner hidden" id="olbp" href=" http://v.dangdang.com/17862_3533_1" target="_blank" name="Go_pinpai" style="display: none;">
+                                <img src="" class="J-outlets-img">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 图书展示区 begin -->
+                    <div class="product_main clearfix" dd_name="单品区域">
+                        <div class="pic_info">
+                            <!-- 大图区开始 -->
+                            <div class="pic" id="largePicDiv">
+                                <a href="javascript:;" class="img">
+                                    <img id="largePic" dd_name="大图" alt="{{book.bookIntr}}" src="{% static '/' %}{{book.bookPhoto}}" width="320" height="320">
+                                    <div id="moveMask" class="zoom_pup" style="position: absolute; background: url(&quot;images/zoom_pup.png&quot;); left: 148px; top: 0px; display: none;">
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 大图区结束 -->
+                        </div>
+                        <div class="show_info">
+                            <div class="sale_box clearfix">
+                                <div class="sale_box_left" id="product_info">
+                                    <!-- 标题区begin -->
+                                    <div class="name_info" ddt-area="001">
+                                        <!-- 主标题 -->
+                                        <h1 title="bookName">{{book.bookName}}</h1>
+                                        <!-- 副标题、促销语 -->
+                                        <h2>
+                                        <span class="head_title_name" title="bookIntr">
+                                            {%if book.bookIntr|length >= 100 %}
+                                            {{book.bookIntr|slice:"100"}}
+                                            ...
+                                            {%else%} {{book.bookIntr}}
+                                            {%endif%}
+                                        </span>
+                                        <span class="hot" title="bookIntr">
+                                        </span>
+                                        <span class="yushou" id="presale-title" style="display: none;">
+                                        </span>
+                                        </h2>
+                                    </div>
+                                    <!-- 标题区 end-->
+                                    <!-- 出版物begin -->
+                                    <!-- 图书信息区 -->
+                                    <div class="messbox_info">
+                                        <span class="t1" id="author" dd_name="作者" ddt-area="002">
+                                            作者:
+                                            <a href="" target="_blank" dd_name="作者">{{book.author}}</a>
+                                        </span>
+                                        <span class="t1" dd_name="出版社" ddt-area="003">
+                                            出版社:
+                                            <a href="" target="_blank" dd_name="出版社">{{book.publisher}}</a>
+                                        </span>
+                                        <span class="t1">
+                                            出版时间:{{book.publishTime|date:'Y年n月d日'}}
+                                        </span>
+                                    </div>
+                                    <!-- 出版物 end-->
+                                    <!-- 价格区begin -->
+                                    <div class="price_info clearfix">
+                                        <div class="price_pc" id="pc-price">
+                                            <div class="price_d">
+                                                <p class="t" id="dd-price-text">价格</p>
+                                                <p id="dd-price">
+                                                    <span class="yen">¥</span>
+                                                    {{book.bookPrice}}
+                                                </p>
+                                            </div>
+                                            <div class="price_vip" style="display:none" id="dd-vip">
+                                            </div>
+                                        </div>
+                                        <div class="price_e">
+                                            <p class="t">折扣书价</p>
+                                            <p>
+                                                <span class="yen">￥</span>
+                                                {{price}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="new_user_price before_user_price" id="dd-vip-price" style="display: none;"></div>
+                                    <!-- 地址区 -->
+                                    <div class="area_info clearfix">
+                                        <!-- <div class="left letter03">配送至</div>
+                                        <div class="right" id="geo-info">
+                                            <div class="select_add clearfix">
+                                                <div id="citySelect"  style="float:left;margin-left: 15px;">
+                                                    <select id="province">
+                                                        <option value="省">省</option>
+                                                    </select>
+                                                    <select id="city">
+                                                        <option value="市">市</option>
+                                                    </select>
+                                                    <select id="country">
+                                                        <option value="县">县</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <b></b>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <!-- 地址区end -->
+                                <div class="buy_box clearfix" ddt-area="030">
+                                    <div class="buy_box_btn">
+                                        <div class="num">
+                                            <a href="javascript:;" class="num_del num_disabled" id="num_del" dd_name="数量减">－</a>
+                                            <input id="buy-num" class="text" value="1" type="text">
+                                            <a href="javascript:;" class="num_add" id="num_add" dd_name="数量加">＋</a>
+                                        </div>
+                                        <a href="/cart/add/{{book.id}}" id="part_buy_button" class="btn btn_red" dd_name="加入购物车" go-uri="//shopping.dangdang.com/shoppingcart/cart_append_new?product_ids=" ddt-src="addChart1">
+                                            <i class="cart"></i>
+                                            加入购物车
+                                        </a>
+                                    </div>
+                                </div>
+                                <a id="button_endpoint" class="browser"></a>
+                                <!-- 按钮区 end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a id="recommend" name="recommend" class="browser" isloaded="1">&nbsp;</a>
+                <div class="product_content clearfix">
+                    <!-- 右侧主体 -->
+                    <div class="main" id="right-content">
+                        <div class="group_buy" dd_name="相关商品" id="buyTogether" style="">
+                            <ul class="tab clearfix">
+                                <li class="hover" data-type="buyTogether">相关商品</li>
+                            </ul>
+                            <div id="buyTogether_lists" style="visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; width: 1200px;">
+                                <ul class="clearfix" style="margin: 0px; padding: 0px; position: relative; list-style: outside none none; z-index: 1; width: 1200px; left: 0px;top:30px;">
+                                    {%for relate in relatelist%}
+                                    <li data-pid="25253662" data-is-spu="0" data-number="1" data-type="" data-request-id="201807060819187659_000022029214892912" ddt-pit="n_0_0" style="overflow: hidden; float: left; width: 150px; height: 270px;left:20px;padding-right: 20px;" position="" traced="1">
+                                        <p class="pic">
+                                            <a href="{%static '/'%}{{relate.bookPhoto}}" dd_name="相关商品图片0" target="_blank">
+                                                <img id="largePic" alt="{{relate.bookName}}" src="{%static '/'%}{{relate.bookPhoto}}" title="&nbsp;">
+                                            </a>
+                                            <a href="javascript:void(0)" class="unchoose" dd_name="相关商品勾选0"></a>
+                                        </p>
+                                        <p class="price">
+                                            <span class="price_d">{{relate.bookPrice}}</span>
+                                        </p>
+                                        <p class="name" dd_name="相关商品名称0">
+                                            <a href="/book/{{relate.id}}" target="_blank" title="{{relate.bookName}}&nbsp;">{{relate.bookName}}</a>
+                                        </p>
+                                        <p class="zuozhe">
+                                            {{relate.author}}
+                                        </p>
+                                    </li>
+                                    {%endfor%}
+                                    <li style="overflow: hidden; float: left; width: 150px; height: 205px;"></li>
+                                    <li style="overflow: hidden; float: left; width: 150px; height: 205px;"></li>
+                                    <li style="overflow: hidden; float: left; width: 150px; height: 205px;"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- 价格说明begin -->
+                        <div class="price_indication" id="price-explain">
+                            <div class="title">价格说明</div>
+                            <ul>
+                                <li>
+                                    <span>
+                                        <i></i>
+                                        价格：
+                                    </span>
+                                    为商品的销售价，具体的成交价可能因折扣发生变化，最终以订单结算页价格为准。
+                                </li>
+                                <li>
+                                    <span>
+                                        <i></i>
+                                        划线价：
+                                    </span>
+                                    划线价格是享受优惠的价格
+                                </li>
+                                <li class="word4">
+                                    <span>
+                                        <i></i>
+                                        异常问题：
+                                    </span>
+                                    如您发现活动商品销售价或促销信息有异常，请立即联系我们补正，以便您能顺利购物。
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 评论 -->
+                        <div class="comment_body" ddt-area="comment_body">
+                            <div class="comment_tabs">
+                                <!-- 评论数 -->
+                                <div class="clearfix comment_tabs_wrap" id="comment_num_tab">
+                                    <span class="on" data-type="1" dd_name="全部评论" onclick="true">评论</span>
+                                </div>
+                            </div>
+                            <div id="comment_list">
+                                <div class="item_wrap">
+                                    <!-- 评论列表 -->
+                                    {%for op in oplist%}
+                                    <div class="comment_items clearfix">
+                                        <div class="describe_detail">
+                                            <span class="big_pic_left">
+                                                <i>{{op.level}}</i>
+                                            </span>
+                                            <span>
+                                                <p>{{op.detail}}</p>
+                                            </span>
+                                            <div class="big_pic_wrap"><img alt="该用户很懒，没有留下图片" src="{% static '/' %}{{op.image}}"></div>
+                                        </div>
+                                        {%for us in user%}
+                                        {%if forloop.counter0 == forloop.parentloop.counter0%}
+                                        <div class="starline clearfix">
+                                            <div class="items_left_pic">
+                                                <span>{{op.opinionTime}}</span>
+                                                <a href="javascript:" class="pic"><img alt="暂无头像" src="{% static '/' %}{{us.userImage}}"></a>
+                                                <span class="name" title="">{{us.userName}}</span>
+                                            </div>
+                                        </div>
+                                        {%endif%}
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                                {%endfor%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- detail 说明end -->
+        </div>
+        <!-- 详情页完 -->
+    </body>
+</html>

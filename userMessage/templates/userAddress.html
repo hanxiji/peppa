@@ -1,0 +1,40 @@
+{%extends 'userMessage.html'%}
+
+{%block title%}
+地址管理
+{%endblock%}
+
+{%block change%}
+    <p id="p-address"> 收货地址</p>
+    <table border="1" align="center"  cellspacing="0">
+        <thead>
+            <tr>
+                <th>收件人手机号</th>
+                <th>省市区</th>
+                <th>详细地址</th>
+                <th>收件人姓名</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for address in addressList%}
+                <tr>
+                    <td width="100px">{{address.recieverMobile}}</td>
+                    <td width="150px">{{address.province}}-{{address.city}}-{{address.region}}</td>
+                    <td width="100px">{{address.detail}}</td>
+                    <!-- <td width="150px">{{address.address}}</td>
+                    <td width="150px">{{address.addressDetail}}</td> -->
+                    <td width="100px">{{address.recieverName}}</td> 
+                    <td width="60px">
+                        <a href="/userAddressUpdate/{{address.id}}">修改</a>
+                        <a href="/userAddressDelete/{{address.id}}">删除</a>
+                    </td>          
+                </tr>          
+                {%endfor%}           
+        </tbody>
+    </table>
+    <center>
+        <a href="/userAddressAdd">添加</a>
+        <a href="/userMessage/">返回</a>
+    </center>
+{%endblock%}

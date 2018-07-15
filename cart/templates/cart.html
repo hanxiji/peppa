@@ -1,0 +1,175 @@
+﻿{%load static%}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>购物车</title>
+		<link rel="stylesheet" href="{% static 'css/carts.css'%}">
+		<link rel="stylesheet" href="{% static 'css/reset.css'%}">
+		<link rel="stylesheet" type="text/css" href="/static/css/theme_1.css">
+        <!-- <link rel="Stylesheet" type="text/css" href="/static/css/ihome.css"> -->
+        <link rel="Stylesheet" type="text/css" href="/static/css/iheader.css">
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/carts.js' %}"></script>
+	</head>
+	<body>
+		<div id="hd">
+			<div id="tools">
+				<div class="tools">
+					<div class="ddnewhead_operate" dd_name="顶链接">
+						<ul class="ddnewhead_operate_nav">
+							<li class="hover ">
+								<a target="_blank" href="/index/" id="a_bzzxchannel">首页</a>
+							</li>
+							<li class="my_dd">
+								<a target="_blank" href="/userMessage/" id="a_myddchannel">我的Peppa</a>
+							</li>
+							<li class="hover ">
+								<a target="_blank" href="#" id="a_bzzxchannel">客户服务</a>
+							</li>
+						</ul>
+						<div class="new_head_znx" id="znx_content" style="display:none;"></div>
+						<div class="ddnewhead_welcome" display="none;">
+							<span>欢迎光临Peppa，{{userName}}
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="header_end"></div>
+			<div style="position:relative;" class="logo_line_out">
+				<div class="logo_line" dd_name="搜索框">
+					<div class="logo">
+						<img src="" usemap="#logo_link">
+						<map name="logo_link" id="logo_link" dd_name="logo区">
+						<area shape="rect" coords="0,18,200,93" href="http://www.dangdang.com/" title="当当" onfocus="this.blur();">
+							<area shape="rect" coords="200,18,320,93" href="http://www.dangdang.com/" title="" target="_blank" onfocus="this.blur();">
+								</map>
+							</div>
+							<div class="search">
+								<form action="/findpage/" target="_blank" name="searchform" id="form_search_new" onsubmit="return searchsubmit();" method="GET">
+									<input class="text gray" name="key" id="key_S" autocomplete="off" onclick="key_onclick(event);" onfocus="key_onfocus(event);" onblur="key_onblur();" onbeforepaste="onpaste_search();" style="width: 505px;"type="text">
+									<input id="search_btn" dd_name="搜索按钮" style="display:none" type="submit">
+									<input class="button" dd_name="搜索按钮" onclick="javascript:document.getElementById('search_btn').click();" type="button">
+								</form>
+							</div>
+							<div class="search_bottom">
+<!-- 								<div class="search_hot">
+									热搜:
+									<a href="#" name="hotword" target="_blank">郭敬明</a>
+									<a href="#" name="hotword" target="_blank">
+									少年读史记</a>
+									<a href="#" name="hotword" target="_blank">流量池</a>
+									<a href="#" name="hotword" target="_blank">王阳明</a>
+								</div> -->
+							</div>
+							<div id="suggest_key" class="suggest_key" style="display:none;"></div>
+							<div class="ddnew_cart">
+								<a href="/cart/" name="购物车" dd_name="购物车">
+									<i class="icon_card"></i>
+									购物车
+									<b id="cart_items_count">{{cartAmount}}</b>
+								</a>
+							</div>
+							<div class="ddnew_order">
+								<a target="_blank" href="/order/all/" name="我的订单" dd_name="我的订单" rel="nofollow">
+									我的订单
+									<b id="unpaid_num" style="color:#ff2832;font:bold 12px Arial;"></b>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav_top"></div>
+				</div>
+				<section class="cartMain">
+					<div class="cartMain_hd">
+						<ul class="order_lists cartTop">
+							<li class="list_chk">
+								<!--所有商品全选-->
+								<input type="checkbox" id="all" class="whole_check">
+								<label for="all"></label>
+								全选
+							</li>
+							<li class="list_con">商品信息</li>
+							<li class="list_price">单价</li>
+							<li class="list_amount">数量</li>
+							<li class="list_sum">金额</li>
+							<li class="list_op">操作</li>
+						</ul>
+					</div>
+					<div class="cartBox" id="cartBox">
+						<div class="order_content" id="order_content">
+							{% for book in bookList %}
+								<ul class="order_lists"  id="{{book.bookID}}">
+									<li class="list_chk">
+										<input type="checkbox" id="checkbox_{{book.dID}}" class="son_check" autocomplete="off">
+										<label for="checkbox_{{book.dID}}"></label>
+									</li>
+									<li class="list_con">
+										<div class="list_img"><a href="/book/{{book.bookID}}"><img src="../{{book.bookImg}}" alt=""></a></div>
+										<div class="list_text"><a href="/book/{{book.bookID}}">{{book.bookName}}</a></div>
+									</li>
+									<li class="list_price">
+										<p class="price">￥{{book.bookPrice}}</p>
+									</li>
+									<li class="list_amount">
+										<div class="amount_box">
+											<a href="javascript:;" class="reduce reSty">-</a>
+											<input type="text" value="{{book.amount}}" class="sum"  id="{{book.bookID}}">
+											<a href="javascript:;" class="plus">+</a>
+										</div>
+									</li>
+									<li class="list_sum">
+										<p class="sum_price">￥{{book.price}}</p>
+									</li>
+									<li class="list_op">
+										<p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+									</li>
+								</ul>
+							{% endfor %}
+							<script type="text/javascript">
+							//列表
+							/*var bookList = {{ bookJson|safe }}
+							for (var i = bookList.length - 1; i >= 0; i--) {
+							// 鼠标右键，审核元素，选择 console 可以看到输入的值。
+							console.log(bookList[i]);
+							};*/
+							// console.log('--- 同时遍历索引和内容，使用 jQuery.each() 方法 ---')
+							// $.each(bookList, function(index, item){
+							//     console.log(index);
+							//     console.log(item);
+							// });
+							</script>
+						</div>
+					</div>
+					<!--底部-->
+					<div class="bar-wrapper">
+						<div class="bar-right">
+							<div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
+							<div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
+							<div class="calBtn"><a href="javascript:;">结算</a></div>
+						</div>
+					</div>
+				</section>
+			<section class="model_bg"></section>
+			<section class="my_model">
+				<p class="title">删除宝贝<span class="closeModel">X</span></p>
+				<p>您确认要删除该宝贝吗？</p>
+				<div class="opBtn"><a href="javascript:;" class="dialog-sure">确定</a><a href="javascript:;" class="dialog-close">关闭</a></div>
+			</section>
+			<script type="text/javascript">
+			/*django中ajax关闭跨站点请求攻击*/
+			$.ajaxSetup({
+			data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+			});
+			// $.ajaxSetup({
+			//   beforeSend: function(xhr, settings){
+			//       var csrftoken = '{{ csrf_token }}';
+			//       xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			//   }
+			// });
+			</script>
+		</body>
+	</html>

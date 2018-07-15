@@ -1,0 +1,32 @@
+.boxCen {
+    text-align: left;
+}
+.file-clip {
+    width: 210px;
+    height: 210px;
+    vertical-align: bottom;
+    background-color: #e6e6fa;
+}
+.file {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: left;
+
+}
+.boxCen .file {
+    vertical-align: bottom;
+}
+.service-file {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.file-btn {
+    padding::0;
+    cursor:pointer;
+}

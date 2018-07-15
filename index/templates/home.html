@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>无标题文档</title>
+        <script language="javascript" type="text/javascript">
+        function BookID(){
+            var loc = location.href;
+            var n1 = loc.length;//地址的总长度
+            var n2 = loc.indexOf("=");//取得=号的位置
+            var ref = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
+            return ref;
+        }
+        var ID = BookID()
+        document.getElementById("p1").value = ID
+        // document.write(ID);
+        </script>
+    </head>
+    <body>
+        <p id='p1'></p>
+    </body>
+</html>

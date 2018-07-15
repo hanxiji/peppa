@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>修改头像</title>
+
+<script type="text/javascript" src="/static/js/imgChange/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id="tt"></div>
+
+<script type="text/javascript" src="/static/js/imgChange/iscroll-zoom.js"></script> 
+<script type="text/javascript" src="/static/js/imgChange/hammer.js"></script> 
+<script type="text/javascript" src="/static/js/imgChange/lrz.all.bundle.js"></script> 
+<script type="text/javascript" src="/static/js/imgChange/jquery.photoClip.js"></script> 
+<script>
+$(function(){
+	var html = '<div class="boxCen">';
+		html += '<div id="clipArea" class="file-clip"></div>';
+		html += '<div class="file">';
+        html += '<div class="file-btn">点击上传图片</div>';
+        html += '<input type="file" class="service-file" id="file">';
+        html += '</div>';
+		html += '<div class="file-btn" id="clipBtn">裁剪图片</div>';
+		html += '<div class="red">鼠标滚轮为缩放</div>';
+		html += '<div class="red">双击则顺时针旋转90度</div>';
+		html += '</div>';
+		html += '<div id="imgHtml" class="clipEnd"></div>';	
+		$('#tt').html(html);
+		clip();				
+});
+
+function clip(){
+	$("#clipArea").photoClip({
+		size: [150, 150],
+		file: "#file",
+		ok: "#clipBtn",
+		view:"#imgcav",
+		rotaBtn:'#rotaBtn',
+		bigBtn:'#bigImg',
+		smallBtn:'#smallImg',
+		outputSize:[50, 50],
+		loadStart: function() {
+			console.log("照片读取中");
+		},
+		loadComplete: function() {
+			console.log("照片读取完成");
+		},
+		clipFinish: function(dataURL) {
+			var img = '<img id="imgLast" src="'+dataURL+'">';
+			console.log(dataURL);
+			$('#imgHtml').html(img);
+		}
+	});
+}
+</script>
+
+</body>
+</html>

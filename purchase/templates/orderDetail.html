@@ -1,0 +1,36 @@
+{%extends 'order.html'%}
+{%load static%}
+
+{% block center %}
+
+<div class="main">
+<div class="order-detail">
+    <table>
+                    <thead>
+                    <tr class="order-nav">
+                        <th class="pdl">商品</th>
+                        <th class="shop-price">价格(元)</th>
+                        <th class="shop-number">数量</th>
+                    </tr>
+                    </thead>
+                        <thead>
+                        {% for odr in infomation %}
+                        <tr class="order-inf">
+                            <td class="book">
+                                <a href="/book/{{odr.bookID}}">
+                                    <img border="0", src="{%static '/'%}{{odr.bookPhoto}}", width="60", height="80">
+                                </a>
+                                <a href="/book/{{odr.bookID}}">{{odr.bookName}}</a>
+                            </td>
+                            <td class="pymt" align="center">{{odr.bookPrice}}</td>
+                            <td class="time" align="center">{{odr.bookAmount}}</td>
+                            {% block button %}
+                            {% endblock %}
+                        </tr>
+                        {% endfor %}
+                        </thead>
+                </table>
+</div>
+</div>
+
+{% endblock %}

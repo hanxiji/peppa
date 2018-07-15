@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{%block title%} 用户中心{%endblock%}</title>
+    <script src="/static/js/recharge.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/userMessage/message.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="/static/css/userMessage/update.css"> 
+    <link rel="stylesheet" type="text/css" href="/static/css/userMessage/add.css"> 
+    <style type="text/css">
+        #top{           
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 1406.5px;
+            height: 120px;
+            /*background-image: url('/static/img/userMessage/background.png'); */
+            border-top: 1px solid #ff6347;
+            border-bottom: 31px solid #ff6347;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        #innerButton{
+            position: relative;
+            top: -180px;
+            left: -20px;
+        }
+        #balance{
+            width: 160px;
+        }
+    </style>
+
+    <script src="/static/js/address/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/address/common.js" charset="UTF-8"></script>
+    <script src="/static/js/address/Popt.js"></script>
+    <script src="/static/js/address/cityJson.js"></script>
+    <script src="/static/js/address/citySet.js"></script>
+    <script src="/static/js/recharge.js"></script>
+
+</head>
+<body>   
+<div id="all">
+    <div id="top">
+        <div id="top-right">
+            <ul id="top-ul">
+                <li><a href="/cart/">购物车</a></li>               
+                <li><a href="/userMessage/">个人中心</a></li>
+                <li><a href="/index/">首页</a></li>
+                <li>欢迎你<a href="/userMessage/">&nbsp;{{user.userName}}</a></li>
+            </ul>
+        </div>
+        <div id="top-left">
+            <img src="/static/img/userMessage/logo.png" width="100px" id="logo">
+        </div>
+        <div id="top-center">
+            <input type="text" name="search" class="search">
+            <!-- <select>
+                <option >作者</option>
+                <option >书名</option>
+                <option >价钱</option>
+            </select> -->
+            <a href="/search/"><input type="button" value="查询" id="button"></a>
+        </div>
+        <img src="/static/img/userMessage/title.png" style="float: right;" width="150px" id="img-title"> 
+    </div>
+    <div id="left">
+        <ul>
+            <ul>
+                <li class="title">个人资料</li>
+                <li class="little-title"><a href="/userMessage/">个人信息</a></li>
+                <li class="little-title"><a href="/userPassword/">安全设置</a></li>
+                <li class="little-title"><a href="/userAddress/">地址管理</a></li>
+            </ul>
+            <ul>
+                <li class="title">我的交易</li>
+                <li class="little-title"><a href="/order/all/">我的订单</a></li>
+                <li class="little-title"> <a href="/listrefund/">退款售后</a></li>
+                <li class="little-title"><a href="/opinion/">评价商品</a></li>
+            </ul>
+            <ul>
+                <li class="title">我的资产</li>
+                <li class="little-title"><a href="/balance/">账户余额</a></li>
+            </ul>
+            <ul>
+                <li class="title">在线客服</li>
+                <li class="little-title"><a href="/customercareuser/">商品咨询</a></li>
+                <li class="little-title"><a href="/suggest/">意见反馈</a></li>
+                <li class="little-title"><a href="#">我的消息</a></li>
+
+            </ul>
+        </ul>
+    </div>
+    
+    <div id="center">
+    {%block change%}
+        <form action="/userMessage/" method="post" onsubmit="return isPhone()" enctype="multipart/form-data">
+            {%csrf_token%}
+            <ul>
+                <li>
+                    <span class="userM">头像：</span>
+                    </li>
+                <li>
+                    <!-- <a href="#" onclick="showImg()"><img width="100px" src="/{{user.userImage}}" id="userImage" name="userImage" /></a> -->
+                    <a href="#" ><img width="100px" src="/{{user.userImage}}" id="userImage" name="userImage" /></a>
+                </li>
+                <li>
+                    <span class="userM">修改：</span>
+                    <input type="file" name="inputImg" id="inputImg" accept="image/gif, image/jpeg, image/png, image/jpg">
+                </li>
+                <li>
+                    <span class="userM">名称：</span>
+                    <input type="text" name="userName" value="{{user.userName}}" readonly="readonly">
+                </li>
+                <li>
+                    <span class="userM">手机号： </span>
+                    <input type="text" name="userMobile" value="{{user.userMobile}}" id="phone" readonly="readonly">
+                </li>
+                <li>
+                    <span class="userM">邮箱： </span>
+                    <input type="text" name="userEmail" value="{{user.userEmail}}" readonly="readonly">
+                </li>
+                <li>
+                    <span class="userM">余额： </span>
+                    <input type="text" value="{{user.balance}}" id="balance" name="balance" readonly="readonly">
+                    <input type="button" onclick="recharge();" value="充值" name="money">
+                </li>
+                <li>
+                    <span class="userM">操作：</span>
+                    <input type="submit" value="保存" class="operation">                    
+                </li>
+            </ul>
+        </form>
+    {%endblock%}
+    </div>
+    
+    <div id="right">
+        <p id="search-results">peppa屋主推荐</p>
+        <div id="right-result">
+            {%for book in bookList%}
+            <li>
+                <div>
+                    <img src="/{{book.bookPhoto}}" width="100px;" height="150px;">
+                    <div class="bookDisc">简介：{{book.bookIntr}}</div>
+                </div>
+            </li>
+            {%endfor%}
+        </div>
+    </div>
+    <div id="bottom">
+        <ul>
+            <li><a href="/index/">Peppa书屋</a></li>
+            <li><a href="/aboutUs/">脱发工作室</a></li>
+            <li><a href="/index/">商城首页</a></li>
+            <li><a href="/packageSuggest/">物流选择推荐</a></li>
+        </ul>
+    </div>
+
+<!--     <div id="imgShow" hidden="true">
+    <iframe src="/img" id="iFream" name="iFream">图像</iframe>
+    <a onclick="showMessage()" href="#" id="Confirm">确定</a>
+</div> -->
+</div>
+</body>
+</html>

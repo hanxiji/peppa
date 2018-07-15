@@ -1,0 +1,463 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/static/plugin/bootstrap-3.3.7/css/bootstrap.css">
+        <script src="{%static '/js/loadXmlDoc.js'%}" type="text/javascript" charset="utf-8"></script>
+        <script src="{%static '/js/jilianxuanze.js'%}" type="text/javascript" charset="utf-8"></script>
+        <script src="{%static '/js/pagetop2015_0827.js'%}" type="text/javascript" charset="utf-8"></script>
+        <link href="{%static '/css/header_150803.css'%}" rel="stylesheet" type="text/css">
+        <link href="{%static '/css/comment.min.css'%}" rel="stylesheet" type="text/css">
+        <link href="{%static '/css/footer_150526.css'%}" rel="stylesheet" type="text/css">
+        <link href="{%static '/css/layer.css'%}" rel="stylesheet" type="text/css">
+        <link href="{%static '/css/newcategory_book.css'%}" rel="stylesheet" type="text/css">
+        <link href="{%static '/css/win_login20150728.css'%}" rel="stylesheet" type="text/css">
+        <script>
+        var userAgent = navigator.userAgent.toLowerCase();
+        var deviceUA = ["iphone", "android", "mobile", "ipod", "mqqbrowser", "midp", "ucweb", "micromessenger"];
+        var preURL=window.location.href.split('.html')[0];
+        var productId=preURL.substring(preURL.lastIndexOf('/')+1)
+        for (var i = 0; i < deviceUA.length; i++) {
+        var regExp = new RegExp(deviceUA[i], "i");
+        if (userAgent.match(regExp) == deviceUA[i]) {
+        window.location.href=window.location.origin+'/touch/products/'+productId+'.html'+window.location.href.split('.html')[1]
+        }
+        }
+        </script>
+        <meta charset="UTF-8">
+        <title>{{book.bookName}}-Peppa书城</title>
+        <meta name="keywords" content="{{book.bookName}},{{book.author}},{{book.publisher}},{{bookTy}}">
+        <meta name="description" content="★describe">
+        <meta name="mobile-agent" content="format=html5;url=http://e.dangdang.com/touch/products/1900301848.html">
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="{%static '/js/jquery.min.js'%}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="loginWindow" src="{%static '/js/LoginWindow.js'%}"></script>
+    </head>
+    <body>
+        {%csrf_token%}
+        <div class="nTalk-xpush-container" style="margin: 0px;
+            padding: 0px;
+            border: none;
+            float: none;
+            max-width: none;
+            max-height: none;
+            clear: none;
+            left: auto;
+            top: auto;
+            text-align: left;
+            box-sizing: content-box;
+            color: rgb(0, 0, 0);
+            background-color: transparent;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            font-stretch: normal;
+            font-size: 12px;
+            line-height: 160%;
+            font-family: Arial, &quot;Microsoft YaHei&quot;;
+            width: 300px;
+            height: 100px;
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            display: none;">
+            <ul class="nTalk-xpush-message-wrapper" style="padding: 0px;
+                border: none;
+                float: none;
+                width: auto;
+                height: auto;
+                max-height: none;
+                clear: none;
+                position: static;
+                left: auto;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                text-align: left;
+                box-sizing: content-box;
+                color: rgb(0, 0, 0);
+                background-color: transparent;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-size: 12px;
+                line-height: 160%;
+                font-family: Arial, &quot;Microsoft YaHei&quot;;
+                margin: 30px 100px 0px 0px;
+                max-width: 230px;">
+                <li class="nTalk-xpush-message" style="margin: 0px;
+                    border: none;
+                    width: auto;
+                    height: auto;
+                    max-width: none;
+                    max-height: none;
+                    clear: none;
+                    left: auto;
+                    top: auto;
+                    text-align: left;
+                    box-sizing: content-box;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-stretch: normal;
+                    line-height: 160%;
+                    color: white;
+                    min-width: 60px;
+                    position: absolute;
+                    bottom: 45px;
+                    right: 100px;
+                    font-family: 微软雅黑;
+                    font-size: 14px;
+                    background: rgb(55, 134, 235);
+                    border-radius: 5px;
+                    display: inline;
+                    float: right;
+                    padding: 7px 2px 7px 6px;
+                    font-weight: 100;
+                    word-break: break-all;
+                    list-style: none;">
+                </li>
+                <div class="nTalk-xpush-message-angel" style="padding: 0px;
+                    border-right: none;
+                    border-image: initial;
+                    float: none;
+                    max-width: none;
+                    max-height: none;
+                    clear: none;
+                    right: auto;
+                    bottom: auto;
+                    text-align: left;
+                    box-sizing: content-box;
+                    color: rgb(0, 0, 0);
+                    background-color: transparent;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-size: 12px;
+                    line-height: 160%;
+                    font-family: Arial, &quot;Microsoft YaHei&quot;;
+                    display: block;
+                    position: absolute;
+                    left: 170px;
+                    top: 2px;
+                    margin: 30px;
+                    height: 0px;
+                    width: 0px;
+                    border-left: 5px solid rgb(55, 134, 235);
+                    border-top: 5px solid rgba(0, 0, 0, 0);
+                    border-bottom: 5px solid rgba(0, 0, 0, 0);">
+                </div>
+            </ul>
+            <span class="nTalk-xpush-message-count" style="margin: 0px;
+                padding: 0px;
+                border: none;
+                float: none;
+                max-width: none;
+                max-height: none;
+                clear: none;
+                left: auto;
+                bottom: auto;
+                box-sizing: content-box;
+                background-color: transparent;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: Arial, &quot;Microsoft YaHei&quot;;
+                position: absolute;
+                color: rgb(76, 151, 234);
+                top: 8px;
+                right: 4px;
+                width: 22px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                font-size: 18px;
+                z-index: 100000001;">
+            </span>
+            <img src="http://nt-download.imip.dangdang.com/js/b2b/siteid/respack_nt6.93/images/messageCountBkg.png" class="nTalk-xpush-message-count-bkg" style="margin: 0px;
+            padding: 0px;
+            border: none;
+            width: auto;
+            height: auto;
+            max-width: none;
+            max-height: none;
+            clear: none;
+            right: auto;
+            bottom: auto;
+            text-align: left;
+            box-sizing: content-box;
+            color: rgb(0, 0, 0);
+            background-color: transparent;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            font-stretch: normal;
+            font-size: 0px;
+            line-height: 0px;
+            font-family: Arial, &quot;Microsoft YaHei&quot;;
+            float: right;
+            position: absolute;
+            left: 210px;
+            top: 5px;
+            z-index: 100000000;
+            cursor: pointer;">
+        </div>
+        <div id="nTalk_post_hiddenElement" style="left: -10px;
+            top: -10px;
+            visibility: hidden;
+            display: none;
+            width: 1px;
+            height: 1px;">
+        </div>
+        <script>
+        var prodCurrItem = 0;
+        var isDestAreaEmpty = 0;
+        var isWidth = 1210 < screen.width;
+        !isWidth && (document.body.className='narrow_page');
+        var requestUrl = window.location.href;
+        var point = '';
+        if (requestUrl.indexOf("point") != -1){
+        point = requestUrl.substring(requestUrl.indexOf("point")+6, requestUrl.lastIndexOf("point")+5);
+        }
+        window.onunload = function (){window.scrollTo(0,0);}
+        var imipUrl = "{%static '/js/imip.js'%}";
+        var couponJs="{%static '/js/autoActivity.js'%}"
+        var localUrl = 'http://' + window.location.host + '/index.php';
+        var baseUrl = 'http://product.dangdang.com/';
+        var reg = /\.dangdang\.com/;
+        if (!window.localUrl.match(reg)) {
+        var script = document.createElement("script");
+        script.src = "{%static '/js/initCookie.js'%}";
+        $("head").append(script);
+        }
+        </script>
+        <script src="{%static '/js/item.js'%}" language="javaScript"></script>
+        <script type="text/javascript"></script>
+        <link href="{%static '/css/header_150803.css'%}" rel="stylesheet" type="text/css">
+        <script charset="gb2312" type="text/javascript">var width = 1; narrow = 0;</script>
+        <script src="{%static '/js/pagetop2015_0827.js'%}" charset="gb2312" type="text/javascript"></script>
+        <script src="{%static '/js/dd.menu-aim.js'%}" charset="gb2312" type="text/javascript"></script>
+        <link href="{%static '/css/comment.min.css'%}" rel="stylesheet" type="text/css">
+        <script charset="gb2312" type="text/javascript">var width = 1; narrow = 0;</script>
+        <div id="hd">
+            <div id="tools">
+                <div class="tools">
+                    <div class="ddnewhead_operate" dd_name="顶链接">
+                        <ul class="ddnewhead_operate_nav">
+                            <li class="my_dd">
+                                <a target="_blank" href="/userMessage/" id="a_myddchannel">我的Peppa</a>
+                            </li>
+                            <li class="hover ">
+                                <a target="_blank" href="/customercareuser/" id="a_bzzxchannel">客户服务</a>
+                            </li>
+                        </ul>
+                        <div class="new_head_znx" id="znx_content" style="display:none;">
+                        </div>
+                        <div class="ddnewhead_welcome" display="none;">
+                            <span id="nickname">欢迎光临Peppa，
+                                 <a dd_name="登录" href="/login/" target="_self" rel="nofollow" class="login_link" id="login_link">请登录</a>
+                            </span>
+                             <script type="text/javascript">
+                                var user = {{ user|safe }};
+                                if(user.login==true){
+                                    var a = document.getElementById("login_link");
+                                    a.innerText = user.uname;
+                                    a.href = "/loginout/";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="header_end"></div>
+            <div style="position:relative;" class="logo_line_out">
+                <div class="logo_line" dd_name="搜索框">
+                    <div class="logo">
+                        <img src="{% static 'img/logo.png' %}" usemap="#logo_link" style="width: 100px;height: 100px;">
+                        <!-- <map name="logo_link" id="logo_link" dd_name="logo区">
+                        <area shape="rect" coords="0,18,200,93" href="http://www.dangdang.com/" title="当当" onfocus="this.blur();">
+                            <area shape="rect" coords="200,18,320,93" href="http://www.dangdang.com/" title="" target="_blank" onfocus="this.blur();">
+                                </map> -->
+                            </div>
+                            <div class="search">
+                                <form action="/findpage/" target="_blank" name="searchform" id="form_search_new" onsubmit="return searchsubmit();" method="GET">
+                                    <input class="text gray" name="key" id="key_S" autocomplete="off" onclick="key_onclick(event);" onfocus="key_onfocus(event);" onblur="key_onblur();" onbeforepaste="onpaste_search();" style="
+                                    width: 505px;
+                                    " type="text">
+                                    
+                                    <input id="search_btn" dd_name="搜索按钮" style="display:none" type="submit">
+                                    <input class="button" dd_name="搜索按钮" onclick="javascript:document.getElementById('search_btn').click();" type="button">
+                                </form>
+                            </div>
+                            <div id="suggest_key" class="suggest_key" style="display:none;"></div>
+                            <div class="ddnew_cart">
+                                <a href="/cart/" name="购物车" dd_name="购物车">
+                                    <i class="icon_card"></i>
+                                    购物车
+                                    <b id="cart_items_count">0</b>
+                                </a>
+                            </div>
+                            <div class="ddnew_order">
+                                <a target="_blank" href="/order/all/" name="我的订单" dd_name="我的订单" rel="nofollow">
+                                    我的订单
+                                    <b id="unpaid_num" style="color:#ff2832;font:bold 12px Arial;"></b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav_top" dd_name="一级导航条">
+                        <div class="nav_top">
+                            <ul>
+                                <li class="all">
+                                    <a href="/index/" id="a_category" name="cate" class="sort_button" onmouseover="showCategory('a_category','__ddnav_sort','//static.dangdang.com/js/header2012/categorydata_new.js?20180115');" onmouseout="closeCategory('__ddnav_sort');" dd_name="全部商品分类" target="_blank">全部商品分类</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/小说" target="_blank">小说</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/文学" target="_blank">文学</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/艺术" target="_blank">艺术</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/青春文学" target="_blank">青春文学</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/休闲_爱好" target="_blank">休闲_爱好</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/孕产_胎教" target="_blank">孕产_胎教</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/动漫_幽默" target="_blank">动漫_幽默</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/烹饪_美食"target="_blank">烹饪_美食</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/时尚_美妆" target="_blank">时尚_美妆</a>
+                                </li>
+                                <li>
+                                    <a name="nav1" href="/find/旅游_地图" target="_blank">旅游_地图</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="12808" class="con search_wrap clearfix" name="tit1">
+                    <div id="12810" class="col search_left" name="16029" dd_name="商品区域">
+                        <div class ddt-area="451680112839" name="titmid">
+                            <div class="con shoplist" name="tit2" style="padding-left: 200px;">
+                                <div id="search_nature_rg" dd_name="普通商品区域">
+                                    {%for book in books%}
+                                    <ul class="bigimg" id="component_0__0__6612">
+                                        <li ddt-pit="1" class="line1" id="p23490646" sku="23490646">
+                                            <a title=" {{book.BOOK.bookName}}" ddclick="/book/{{book.BOOK.id}}" class="pic" name="itemlist-picture" dd_name="单品图片" href="{%static '/'%}{{book.BOOK.bookPhoto}}" target="_blank">
+                                                <img src="{%static '/'%}{{book.BOOK.bookPhoto}}" alt=" {{book.BOOK.bookName}}">
+                                            </a>
+                                            <p class="name" name="title">
+                                                <a title="{{book.BOOK.bookName}}" href="/book/{{book.BOOK.id}}" ddclick="act=normalResult_title&amp;pos=23490646_0_1_p" name="itemlist-title" dd_name="单品标题" target="_blank">
+                                                    {{book.BOOK.bookName}}
+                                                </a>
+                                            </p>
+                                            <p class="detail">
+                                                {%if book.BOOK.bookIntr|length >= 100 %}
+                                                {{book.BOOK.bookIntr|slice:"100"}}
+                                                ...
+                                                {%else%} {{book.BOOK.bookIntr}}
+                                                {%endif%}
+                                            </p>
+                                            <p class="price">
+                                                <span class="search_now_price">{{book.PRICE}}</span>
+                                                <a class="search_discount" style="text-decoration:none;">定价：</a>
+                                                <span class="search_pre_price">{{book.BOOK.bookPrice}}</span>
+                                                <span class="search_discount">&nbsp;
+                                                    ({{book.BOOK.discount}}折)
+                                                </span>
+                                            </p>
+                                            <p class="search_book_author">
+                                                <span>
+                                                    {{book.BOOK.author}}
+                                                    著
+                                                </span>
+                                                <span>
+                                                    /{{book.BOOK.publishTime|date:'Y年n月d日'}}
+                                                </span>
+                                                <span>
+                                                    {{book.BOOK.publisher}}
+                                                </span>
+                                            </p>
+                                            <div class="shop_button">
+                                                <p class="bottom_p">
+                                                    <a class="search_btn_cart " name="Buy" dd_name="加入购物车" href="/cart/add/{{book.BOOK.id}}/1" ddclick="act=normalResult_addToCart&amp;pos=23490646_0_1_p">加入购物车</a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="non paginating clearfix">
+                            <div class="paging">
+                                <ul class="pagination" id="pager" name="Fy">
+                                    {#上一页按钮开始#}
+                                    {# 如果当前页有上一页#}
+                                    {% if books.has_previous %}
+                                        {#  当前页的上一页按钮正常使用#}
+                                        <li class="item">
+                                            <a href="?key={{key}}&page={{ books.previous_page_number }}"><<</a>
+                                        </li>
+                                    {% else %}
+                                        {# 当前页的不存在上一页时,上一页的按钮不可用#}
+                                        <li class="prev none">
+                                            <a href="#"><<</a>
+                                        </li>
+                                    {% endif %}
+                                    {#上一页按钮结束#}
+                                    {# 页码开始#}
+                                    {% for num in page_list %}
+                                        {% if num == books.number %}
+                                            <li class="active">
+                                                <a href="?key={{key}}&page={{ num }}" class="current">{{ num }}</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="item">
+                                                <a href="?key={{key}}&page={{ num }}"  class="null">{{ num }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {#页码结束#}
+                                    {# 下一页按钮开始#}
+                                    {% if books.has_next %}
+                                        <li class="item">
+                                            <a href="?key={{key}}&page={{ books.next_page_number }}">>></a>
+                                        </li>
+                                    {% else %}
+                                        <li class="prev none">
+                                            <a href="#">>></a>
+                                        </li>
+                                    {% endif %}
+                                    {# 下一页按钮结束#}
+                                    <li class="page_input">
+                                        <span>到第</span>
+                                        <input id="t__cp" class="number" value="1" type="text">
+                                        <span>页</span>
+                                        <input class="button" id="click_get_page" value="确定" name="bottom-page-turn" type="button" onclick="jumppages()">
+                                        <script type="text/javascript">
+                                        function jumppages(){
+                                        var textin=document.getElementById("t__cp").value;
+                                        tjump="?key={{key}}&page=" + textin;
+                                        window.location.href = tjump;
+                                        }
+                                        </script>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>

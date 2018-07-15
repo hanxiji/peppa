@@ -1,0 +1,278 @@
+       body{
+            position: relative;
+            margin: 0 auto;
+        }
+        #all{
+            position: relative;
+            top: 20px;
+            width: 1406.5px;
+            margin: 0 auto;
+
+           
+        }
+        p, div, ul, li{
+            border:0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        #top{           
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 1406.5px;
+            height: 150px;
+            /* background-image: url('/static/img/userMessage/background.png'); */
+            border-top: 1px solid #ff6347;
+            border-bottom: 1px solid #ff6347;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        #logo{
+            padding: 20px;
+            border-radius: 100px;
+            position: relative;
+
+        }
+        #img-title{
+            position: relative;
+            left: 350px;
+            border-radius: 50px;
+        }
+        #left{
+            width: 221px;
+            height: 550px;
+            background-color: #fff5f0;
+            float: left;
+            position: relative;
+            border-radius: 5px;
+            /* border-left: 2px solid red;  */
+        }
+        #center{
+            width: 702.5px;
+            height: 550px;
+            background-color: #fdfff9;
+            position: relative;
+            left: 221px;
+            border-radius: 5px;
+            /* border-left: 2px solid red; */
+        }
+        #center ul{
+            position: relative;
+            left: 20px;
+        }
+        #right{
+            width: 381px;
+            height: 550px;
+            position:relative;
+            top: -550px;
+            left: 1025.5px;
+            background-color: #fff5f0;
+            float: left;
+            border-radius: 5px;
+/*             border-left: 2px solid red;
+border-right: 2px solid red; */
+        }
+        #top-right{           
+            width: 350px;
+            height: 50px;
+            float: right;
+            position: relative;
+            right: 200px;
+            top: 30px;
+        }
+        #top-ul li{
+            float: right;
+            list-style: none;
+            margin: 0px 4px;
+            padding: 0px 2px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            color: #ffb6c1;
+        }
+        #top-left img{
+            float: left;
+            position: relative;
+            left: 100px;
+        }
+        #top-left p{
+            size: 10px;
+            float: left;
+            position: relative;
+            top: 110px;
+            
+        }
+        #top-center{
+            position: relative;
+            top: 50px;
+            left: 250px;
+        }
+        #top-center .search{
+            width: 300px;
+            height: 25px;
+            border-radius: 5px;
+        }
+        #top-center select{
+            border-radius: 5px;
+            height: 30px;
+        }
+        #button{
+            width: 60px;
+            height: 30px;
+            border-radius: 5px;
+/*            background-color: #ff6347; */
+        } 
+        #left li{
+            margin: 15px 0px;
+            list-style: none;
+        }
+        .title{
+            font-size: 20px;
+            font-family: '楷体';
+            padding: 0 0 0 100px;
+        }
+        .little-title{
+            font-size: 14px;
+            padding: 0 0 0 120px;
+        }
+        #center li{
+            list-style: none;
+            margin: 0 0 30px 0;
+        }
+        .userM{
+            display: inline-block;
+            width: 80px;
+            font-family: '楷体';
+            font-size: 20px;
+        }
+        #userImage{
+            position: relative;
+            left: 90px;
+        }
+        form{
+            position: relative;
+            left: 0px;
+        }
+        #search-results{
+            font-size: 20px;
+            font-family: '楷体';
+        }
+        #right-result{
+            max-width: 360px;
+            max-height: 480px;
+            /* border: 0.8px solid red; */
+            position: relative;
+            left: 10px;
+            top: 30px;
+            overflow: auto;
+        }
+        #bottom{
+            width: 1406.5px;
+            height: 60px;
+            background-color: #e0ffff;
+            /* border-top: 2px solid red; */
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background-image: url('/static/img/userMessage/background.png'); */
+            float: left;
+            position: relative;
+            top: -547px;
+            /* border: 1.5px solid red; */
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ff6347;
+            border-bottom: 1px solid #ff6347;
+        }
+        #bottom li{
+            position: relative;
+            list-style: none;
+            float: left;
+            margin: 10px 40px;
+            padding: 10px;
+            font-family: '楷体';
+            font-size: 16px;
+            top: 0px;
+            left: 300px;
+        }
+        .p{
+            margin: 0px;
+        }
+        #centerP{
+            float: left;
+            font-family: '楷体';
+            font-size: 28px;
+            position: relative;
+            left: -180px;
+            top: 80px;
+        }
+        #innerP{
+            position: relative;
+            left: -200px;
+            top: 150px;
+            font-family: '楷体';
+            font-size: 20px;
+        }
+        #changePassword{
+            position: relative;
+            top: 180px;
+        }   
+        #innerButton input{
+            position: relative;
+            top: 200px;
+            left: 150px;
+            border-radius: 5px;
+            margin: 0 20px;
+            width: 60px;
+            height: 30px;
+        } 
+        #center table{
+            position: relative;
+            top: -450px;
+            width: 790px;
+            border-radius: 5px;
+            overflow: auto;
+            max-width: 790px;
+            max-height:  300px;
+        }
+        #center th, td{
+            padding: 0px;
+            text-align: center;
+            height: 30px;
+            border-radius: 5px;
+        }
+        #p-address{
+            position: relative;
+            float: left;
+            font-size: 28px;
+            font-family: '楷体';
+            right: 200px;
+            top: 20px;
+        }
+        #center center{
+            position: absolute;
+            top: 50px;
+            right: -90px;
+        }
+        #center center a{
+            border: 1px solid #2f4f4f;
+            margin: 0px 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        #submit-do{
+            border-radius: 5px;
+            width: 80px;
+            height: 30px;
+        }
+        .bookDisc{
+            max-height: 150px;
+            max-width: 250px;
+            float: right;
+            overflow: auto;
+        }
+        #right-result li{
+            margin: 0 0 30px 0;
+
+        }

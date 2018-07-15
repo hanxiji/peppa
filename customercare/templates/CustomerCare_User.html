@@ -1,0 +1,198 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线客服</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/CustomerCare_User.css">
+</head>
+<body>    
+    <div class="title">
+        <span style="color: #708090;">您好，</span>
+        <a href="/customercareusermessage/" class="link">{{user.userName}}</a>
+        &nbsp;
+        <a href="/customercareuserindex/" class="link">首页</a>
+        &nbsp;
+        <a href="/customercareuserexit/" class="link">退出</a>
+    </div>
+
+    <header>
+            <p>Peppa人工客服</p>   
+    </header>
+
+    <div class="chat-container">
+        <div class="left-chat-panel">
+            <div class="chat-box-title">
+                您好，{{customercare.ccName}}为您服务
+            </div>            
+            <div class="chat-box-window" id="chat">   
+                <ul>
+                    {% for chat in chats %}
+                        {% if chat.identity == 'user' %}
+                            <div style="float: right;">
+                                <li>
+                                    <div class='user-content'>
+                                        {{chat.content}}
+                                        {% if chat.emoji %}
+                                            <img src='/{{chat.emoji}}' alt='表情'>
+                                        {% endif %}
+                                    </div>
+                                </li>                             
+                                <li>
+                                    <img class='user-photo' src="{%static '/'%}{{user.userImage}}" alt='用户头像'>
+                                </li>
+                                <li style="text-align: right;">
+                                    <div class="time">
+                                        {{chat.time}}
+                                    </div>                                        
+                                </li>
+                            </div>
+                            <br clear="right">
+                        {% endif %} 
+                        {% if chat.identity == 'cc' %}  
+                            <div style="float: left;">
+                                 <li>
+                                    <div class='cc-content'>
+                                        {{chat.content}}
+                                        {% if chat.emoji %}
+                                            <img src='/{{chat.emoji}}' alt='表情'>
+                                        {% endif %}
+                                    </div>
+                                </li>                             
+                                <li>
+                                    <img class='cc-photo' src="{%static '/'%}{{customercare.ccImage}}" alt='客服头像'>
+                                </li> 
+                                <li>
+                                    <div class="time">
+                                        {{chat.time}}
+                                    </div>                                        
+                                </li>
+                            </div>
+                            <br clear="left">
+                        {% endif %} 
+                        <input type="hidden" class="chat_id" value="{{chat.id}}"/>
+                    {% endfor %}     
+                </ul>
+            </div>
+
+            <div class="chat-box-emoji">
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e100.gif')">
+                    <img src="/static/img/emoji/e100.gif" alt="微笑" title="微笑">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e101.gif')">
+                    <img src="/static/img/emoji/e101.gif" alt="撇嘴" title="撇嘴">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e102.gif')">
+                    <img src="/static/img/emoji/e102.gif" alt="色" title="色">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e103.gif')">
+                    <img src="/static/img/emoji/e103.gif" alt="发呆" title="发呆">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e104.gif')">
+                    <img src="/static/img/emoji/e104.gif" alt="得意" title="得意">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e105.gif')">
+                    <img src="/static/img/emoji/e105.gif" alt="流泪" title="流泪">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e106.gif')">
+                    <img src="/static/img/emoji/e106.gif" alt="害羞" title="害羞">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e107.gif')">
+                    <img src="/static/img/emoji/e107.gif" alt="闭嘴" title="闭嘴">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e108.gif')">
+                    <img src="/static/img/emoji/e108.gif" alt="睡" title="睡">
+                </a>
+                <a href="javascript:void (0);" onclick="chooseExpression('static/img/emoji/e109.gif')">
+                    <img src="/static/img/emoji/e109.gif" alt="大哭" title="大哭">
+                </a>
+                <input type="hidden" class="emoji"/>
+            </div>
+            
+            <div class="chat-box-msg-box">
+                <form id="chatForm" method="POST" action=".">
+                    {% csrf_token %}
+                    <div>
+                        <textarea name="content" id="content" class="editor"></textarea>
+                    </div>
+                    <div>
+                        <input type="hidden" name="userId"  value="{{user.id}}"/>
+                        <input type="hidden" name="customercareId" value="{{customercare.id}}"/>
+                        <input type="hidden" name="post_type" value="send_chat"/>
+                        <input type="submit" class="btn send-btn" value="发送"/>
+                    </div>
+                </form>
+            </div>
+        </div>        
+        <div class="right-info-panel">   
+            <div class="ccInfo">
+                <h3>客服信息</h3>
+                <p>id：<span class="cc-info" id="cc_info_id">{{customercare.id}}</span></p>
+                <p>名称：<span class="cc-info" id="cc_info_name">{{customercare.ccName}}</span></p>
+            </div> 
+            <div class="logo">
+                <img src="/static/img/logo/logo.png" alt="Peppa书屋">
+            </div>        
+        </div>  
+    </div> 
+</body>
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+    $(function() {  
+        // 更新消息      
+        updateMsg();
+        // 滚动条固定在底部
+        $(".chat-box-window").scrollTop($(".chat-box-window")[0].scrollHeight);
+
+        //表单 submit 事件  
+        $("#chatForm").submit(function() {
+            if(document.getElementById('content').value.length===0) {
+                alert("输入内容不可为空");
+            }
+            else{ 
+                // ajax 提交表单  
+                $.post(
+                    "/user_post/",  
+                    $('#chatForm').serialize(),
+                    function(data) {  
+                        $("#content").val("");  //消息发送成功后清空内容框
+                });
+                return false;  // 不刷新页面
+            }                        
+        });      
+    });
+
+    function updateMsg() {
+       $.post(
+            "/user_post/",
+            {
+                post_type: "get_chat",
+                last_chat_id: $(".chat_id").last().val(),
+                userId: $("input[name='userId']").val(),
+            },
+           function(data) {
+                if (data.length > 0) {
+                    $(".chat-box-window").append(data);
+                    // 滚动条固定在底部
+                    $(".chat-box-window").scrollTop($(".chat-box-window")[0].scrollHeight);
+                }                
+       });
+       setTimeout(updateMsg, 1000);        //每秒更新一次
+    }
+
+    function chooseExpression(url) {
+        $(".emoji").val(url);
+        $.post(
+            "/user_post/",
+            {
+                post_type:"send_chat",                
+                userId: $("input[name='userId']").val(),
+                customercareId: $("input[name='customercareId']").val(),
+                content: "",
+                emoji: $(".emoji").val(),
+            },
+        );
+    }
+</script>
+</html>

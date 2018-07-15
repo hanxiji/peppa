@@ -1,0 +1,72 @@
+{%extends 'userMessage.html'%}
+
+{%block title%}
+地址添加
+{%endblock%}
+
+{%block change%}
+<div id="addressAdd">
+    <p>添加收货地址</p>
+    <form method="post" action="/userAddressAdd/" onsubmit="return checkUpdate()">
+    {%csrf_token%}
+    <div data-role="page" id="test">
+        <div class="ui-content">
+        <ul data-role="listview">
+            <li >
+                <span class="common">省市区选择</span><input type="text"hidden name="address" id="address"> 
+                <span id="city"></span> 
+<!--                 <div id="citySelect"  style="float:left;margin-left: 15px;">
+        <select id="province">
+            <option value="省">省</option>
+        </select>
+        <select id="city1">
+            <option value="市">市</option>
+        </select>
+        <select id="country">
+            <option value="县">县</option>
+        </select>
+</div> -->
+            </li>
+            <li>
+                <span class="common">详细地址</span>
+                <input type="text" name="addressDetail">
+            </li>
+            <li>
+                <span class="common">收件人姓名</span>
+                <input id="recieverName" type="text"  name="recieverName">
+            </li>
+            <li>
+                <span class="common">收件人手机号</span>
+                <input id="recieverMobile" type="text" name="recieverMobile">
+            </li>
+        </ul>
+    </div>
+    </div>   
+    <input type="submit" value="添加" id="submit-do">
+    </form>  
+
+        <script type="text/javascript">
+        $("#city").click(function (e) {
+            SelCity(this,e);
+            console.log(this);
+        });
+
+        function checkUpdate(){
+            var recieverName = document.getElementById("recieverName").value;       
+            if (recieverName == "") {
+                alert("姓名不能为空");
+                return false;
+            };
+
+            var recieverMobile = document.getElementById("recieverMobile").value;
+            if(recieverMobile.length != 11) {
+                alert("请输入正确的电话号码");
+                return false;
+            }
+            var address;
+            address = document.getElementById('city').innerText;
+            document.getElementById('address').value = address;
+        }
+    </script>           
+</div>
+{%endblock%}

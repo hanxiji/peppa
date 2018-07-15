@@ -1,0 +1,31 @@
+{%extends 'sendemail.html'%}
+{%load static%}
+{%block title%}确认邮箱验证码{%endblock%}
+{%block t2%}确认邮箱验证码{%endblock%}
+{%block picture%}<img src="{%static 'img/register.jpg'%}">{%endblock%}
+{%block form%}
+<form action="/checkcode/" method="post">
+{%csrf_token%}
+    <!-- 第一行：手机号 -->
+        <div>
+            <div class="form-line">
+                <p>邮箱:</p>
+                <p>{{user.userEmail}}</p>
+            </div>
+            <div class="form-line">
+                <p>验证码:</p>
+                {{form.code}}
+            </div>
+            <center><span style="color: red">{{error_msg}}</span></center>
+        </div>
+        <!-- 第四行：登录 & 注册会员 -->
+        <div class="form-line">
+            <p></p>
+            <div>
+                <br>
+                <br>
+                <input type="submit" value="确认验证码" class="btnLogin">
+            </div>
+        </div>
+</form>
+{%endblock%}

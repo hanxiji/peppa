@@ -1,0 +1,615 @@
+{%load static%}
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///D:/SH/%E7%89%88%E6%9C%AC1/Peppa1.html -->
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Peppa</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/theme_1.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/ihome.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/iheader.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/ifooter.css">
+        <script type="text/javascript" src="/static/js/jquery.js"></script>
+        <script type="text/javascript" src="/static/js/lazyload181.js"></script>
+        <script type="text/javascript" src="/static/js/mix.js"></script>
+    </head>
+    <body>
+        <div id="hd">
+            <div id="tools">
+                <div class="tools">
+                    <div class="ddnewhead_operate" dd_name="顶链接">
+                        <ul class="ddnewhead_operate_nav">
+                            <li class="my_dd">
+                                <a target="_blank" href="/userMessage/" id="a_myddchannel">我的Peppa</a>
+                            </li>
+                            <li class="hover ">
+                                <a target="_blank" href="/customercareuser/" id="a_bzzxchannel">客户服务</a>
+                            </li>
+                        </ul>
+                        <div class="new_head_znx" id="znx_content" style="display:none;"></div>
+                        <div class="ddnewhead_welcome" display="none;">
+                            <span>欢迎光临Peppa，
+                                <a dd_name="登录" href="/login/" target="_self" rel="nofollow" class="login_link" id="login_link">请登录</a>
+                            </span>
+                            <script type="text/javascript">
+                                var user = {{ user|safe }};
+                                if(user.login==true){
+                                    var a = document.getElementById("login_link");
+                                    a.innerText = user.uname;
+                                    a.href = "/loginout/";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="header_end"></div>
+            <div style="position:relative;" class="logo_line_out">
+                <div class="logo_line" dd_name="搜索框">
+                    <div class="logo">
+                        <img src="{% static 'img/logo.png' %}" usemap="#logo_link" style="width: 100px;height: 100px;">
+                        <!-- <map name="logo_link" id="logo_link" dd_name="logo区">
+                        <area shape="rect" coords="0,18,200,93" href="http://www.dangdang.com/" title="当当" onfocus="this.blur();">
+                            <area shape="rect" coords="200,18,320,93" href="http://www.dangdang.com/" title="" target="_blank" onfocus="this.blur();">
+                                </map> -->
+                            </div>
+                            <div class="search">
+                                <form action="/findpage/" target="_blank" name="searchform" id="form_search_new" onsubmit="return searchsubmit();" method="GET">
+                                    <input class="text gray" name="key" id="key_S" autocomplete="off" onclick="key_onclick(event);" onfocus="key_onfocus(event);" onblur="key_onblur();" onbeforepaste="onpaste_search();" style="width: 505px;"type="text">
+                                    <input id="search_btn" dd_name="搜索按钮" style="display:none" type="submit">
+                                    <input class="button" dd_name="搜索按钮" onclick="javascript:document.getElementById('search_btn').click();" type="button">
+                                </form>
+                            </div>
+                            <div id="suggest_key" class="suggest_key" style="display:none;"></div>
+                            <div class="ddnew_cart">
+                                <a href="/cart/" name="购物车" dd_name="购物车">
+                                    <i class="icon_card"></i>
+                                    购物车
+                                </a>
+                            </div>
+                            <div class="ddnew_order">
+                                <a target="_blank" href="/order/all" name="我的订单" dd_name="我的订单" rel="nofollow">
+                                    我的订单
+                                    <b id="unpaid_num" style="color:#ff2832;font:bold 12px Arial;"></b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav_top" style="height: 0px"></div>
+                </div>
+                <div id="bd_auto" name="9149">
+                    <div class="con storey_one" name="9150">
+                        <div class="col storey_one_left" name="9163">
+                            <div class="sidemenu " name="图书馆首：左侧分类区_1" dd_name="左侧分类" ddt-area="403752" ddt-floor="403752" style="height: 590px;">
+                                <div class="con flq_head" style="background: #FF2832;">图书分类</div>
+                                <div class="con flq_body" style="height: 545px;">
+                                    <div class="level_one" name="m403752_pid5368_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/小说" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    小说
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5369_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/文学" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    文学
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5370_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/艺术" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    艺术
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5371_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/青春文学" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    青春文学
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5373_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/休闲_爱好" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    休闲_爱好
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5374_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/孕产_胎教" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    孕产_胎教
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5377_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/动漫_幽默" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    动漫_幽默
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5378_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/烹饪_美食" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    烹饪_美食
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5378_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/时尚_美妆" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    时尚_美妆
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="level_one" name="m403752_pid5378_t9144" type="bar" father="1" style="height: 54.5px;">
+                                        <dl class="primary_dl" son="1" ddt-area="5357" dd_name="文本列表定制" style="padding-top: 11.5px;">
+                                            <dt>
+                                            <a href="/find/旅游_地图" target="_blank">
+                                                <span style="color: #FF2832;">
+                                                    旅游_地图
+                                                </span>
+                                            </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spacer c_spacer"></div>
+                        </div>
+                        <div class="vspacer"></div>
+                        <div class="col storey_one_center" name="9164"><div id="component_403753"></div>
+                        <div class="tab_box_aa " id="component_map_id_403753_part_id_5221" name="m403753_pid0_p5221" dd_name="焦点图" js="true" itemclass="" action="hover" delay="0" speed="3000" rand="0" area="0" barclass="on" updown="1" level="2">
+                            <div class="head  head" ddt-area="5221" dd_name="tab头">
+                                <ul class="tab_aa">
+                                    <li class="first on" type="bar">
+                                        <span>1</span>
+                                    </li>
+                                    <li class="tabh_1" type="bar">
+                                        <span>2</span>
+                                    </li>
+                                    <li class="tabh_2" type="bar">
+                                        <span>3</span>
+                                    </li>
+                                    <li class="tabh_3" type="bar">
+                                        <span>4</span>
+                                    </li>
+                                    <li class="tabh_4" type="bar">
+                                        <span>5</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab_content_aa tab_content_aa ">
+                                <div class="content tab_1" type="item" dd_name="tab_1" style="display: block;">
+                                    <a class=" _1  pic" href="findpage/?key=%E9%95%96%E4%BA%BA"target="_blank">
+                                        <img src="../static/img/img1.jpg">
+                                    </a>
+                                </div>
+                                <div class="content tab_1" type="item" dd_name="tab_2" style="display: block;">
+                                    <a class=" _1  pic" href="/book/302"target="_blank">
+                                        <img src="../static/img/img2.jpg">
+                                    </a>
+                                </div>
+                                <div class="content tab_1" type="item" dd_name="tab_3" style="display: block;">
+                                    <a class=" _1  pic" href="/find/中小学教辅"target="_blank">
+                                        <img src="../static/img/img3.jpg">
+                                    </a>
+                                </div>
+                                <div class="content tab_1" type="item" dd_name="tab_4" style="display: block;">
+                                    <a class=" _1  pic" href="/find/童书"target="_blank">
+                                        <img src="../static/img/img4.jpg">
+                                    </a>
+                                </div>
+                                <div class="content tab_1" type="item" dd_name="tab_5" style="display: block;">
+                                    <a class=" _1  pic" href="/find/孕产_胎教"target="_blank">
+                                        <img src="../static/img/img5.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer c_spacer"></div>
+                        <div class="book_online " name="图书馆首：新书上架_2" dd_name="新书上架" ddt-area="403754" ddt-floor="403754" style="height: 295px;">
+                            <div id="component_403754"></div>
+                            <div class="roll_aa " id="mapid_403754_parent_5298_part_" marquee="true" name="m403754_pid5298_p" js="true" action="newclickroll" delay="500" prevnoneclass="btn_prev_none" nextnoneclass="btn_next_none" page="0" speed="0" display_count="" is_display_tab="1" noend="0" style="height: 265px;">
+                                <div class="btn_brand_prev" type="rollpre"></div>
+                                <div class="btn_brand_next" type="rollnext"></div>
+                                <ul class="mix_marquee_tab">
+                                    <li class="current">1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                </ul>
+                                <div class="over" style="height: 265px;">
+                                    <ul class="list_aa" style="left: 0px;" type="rollbox">
+                                        <li dd_name="第3帧" type="rollitem">
+                                            <ul class="product_ul " id="component_403754__5298_5296__5296" ddt-area="5296" dd_name="商品">
+                                                {% for i in bottom3 %}
+                                                    <li class="line1 " nname="book-65152-9164_2-470622_1" ddt-pit="1" dd_name="1">
+                                                        <a title="{{i.bookName}}" class="img" href="/book/{{i.id}}" target="_blank">
+                                                            <img src="../{{i.bookPhoto}}" alt="{{i.bookName}}">
+                                                        </a>
+                                                        <p class="name" ddt-src="25278677">
+                                                            <a title="{{i.bookName}}" href="/book/{{i.id}}" target="_blank" style=" ">{{i.bookName}}</a>
+                                                        </p>
+                                                        <p class="author">{{i.author}}</p>
+                                                        <p class="price">
+                                                            <span class="rob">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.discount}}</span>
+                                                            </span>
+                                                            <span class="price_r">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.bookPrice}}</span>
+                                                            </span>
+                                                        </p>
+                                                        <div class="icon_pop"></div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li dd_name="第4帧" type="rollitem">
+                                            <ul class="product_ul " id="component_403754__5298_5297__5297" ddt-area="5297" dd_name="商品">
+                                                {% for i in bottom4 %}
+                                                    <li class="line1 " nname="book-65152-9164_2-470622_1" ddt-pit="1" dd_name="1">
+                                                        <a title="{{i.bookName}}" class="img" href="/book/{{i.id}}" target="_blank">
+                                                            <img src="../{{i.bookPhoto}}" alt="{{i.bookName}}">
+                                                        </a>
+                                                        <p class="name" ddt-src="25278677">
+                                                            <a title="{{i.bookName}}" href="/book/{{i.id}}" target="_blank" style=" ">{{i.bookName}}</a>
+                                                        </p>
+                                                        <p class="author">{{i.author}}</p>
+                                                        <p class="price">
+                                                            <span class="rob">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.discount}}</span>
+                                                            </span>
+                                                            <span class="price_r">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.bookPrice}}</span>
+                                                            </span>
+                                                        </p>
+                                                        <div class="icon_pop"></div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li dd_name="第1帧" type="rollitem">
+                                            <ul class="product_ul " id="component_403754__5298_5294__5294" ddt-area="5294" dd_name="商品">
+                                                {% for i in bottom1 %}
+                                                    <li class="line1 " nname="book-65152-9164_2-470622_1" ddt-pit="1" dd_name="1">
+                                                        <a title="{{i.bookName}}" class="img" href="/book/{{i.id}}" target="_blank">
+                                                            <img src="../{{i.bookPhoto}}" alt="{{i.bookName}}">
+                                                        </a>
+                                                        <p class="name" ddt-src="25278677">
+                                                            <a title="{{i.bookName}}" href="/book/{{i.id}}" target="_blank" style=" ">{{i.bookName}}</a>
+                                                        </p>
+                                                        <p class="author">{{i.author}}</p>
+                                                        <p class="price">
+                                                            <span class="rob">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.discount}}</span>
+                                                            </span>
+                                                            <span class="price_r">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.bookPrice}}</span>
+                                                            </span>
+                                                        </p>
+                                                        <div class="icon_pop"></div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li dd_name="第2帧" type="rollitem">
+                                            <ul class="product_ul " id="component_403754__5298_5295__5295" ddt-area="5295" dd_name="商品">
+                                                {% for i in bottom2 %}
+                                                    <li class="line1 " nname="book-65152-9164_2-470622_1" ddt-pit="1" dd_name="1">
+                                                        <a title="{{i.bookName}}" class="img" href="/book/{{i.id}}" target="_blank">
+                                                            <img src="../{{i.bookPhoto}}" alt="{{i.bookName}}">
+                                                        </a>
+                                                        <p class="name" ddt-src="25278677">
+                                                            <a title="{{i.bookName}}" href="/book/{{i.id}}" target="_blank" style=" ">{{i.bookName}}</a>
+                                                        </p>
+                                                        <p class="author">{{i.author}}</p>
+                                                        <p class="price">
+                                                            <span class="rob">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.discount}}</span>
+                                                            </span>
+                                                            <span class="price_r">
+                                                                <span class="sign">￥</span>
+                                                                <span class="num">{{i.bookPrice}}</span>
+                                                            </span>
+                                                        </p>
+                                                        <div class="icon_pop"></div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer c_spacer"></div>
+                    </div>
+                    <div class="vspacer"></div>
+                    <div class="col storey_one_right" name="9165" style="height: 590px;">
+                        <div class="con " name="9168">
+                            <div class="book_new " name="图书馆首：新书热卖榜_1" dd_name="新书热卖榜" ddt-area="403757" ddt-floor="403757">
+                                <div id="component_403757"></div>
+                                <div class="con title">
+                                    <p title="新书热卖榜" class="hot_link" style="color: #FF2832;">
+                                        新书热卖榜
+                                    </p>
+                                </div>
+                                <div class="con list">
+                                    <div class="tab_box_aa " id="component_map_id_403757_part_id_5277" name="m403757_pid5290_p5277" js="true" itemclass="" action="hover" delay="0" speed="0" rand="0" area="1" barclass="on" updown="1" level="2">
+                                        <div class="head  head" ddt-area="5277" dd_name="tab头">
+                                            <ul class="tab_aa">
+                                                <li class="tabh_0  first on" type="bar">
+                                                    <span style="color: #FF2832;">总榜</span>
+                                                </li>
+                                                <li class="tabh_1" type="bar">
+                                                    <span style="color: #FF2832;">小说</span>
+                                                </li>
+                                                <li class="tabh_2" type="bar">
+                                                    <span style="color: #FF2832;">休闲</span>
+                                                </li>
+                                                <li class="tabh_3" type="bar">
+                                                    <span style="color: #FF2832;">文学</span>
+                                                </li>
+                                                <li class="tabh_4" type="bar">
+                                                    <span style="color: #FF2832;">孕产</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab_content_aa tab_content_aa ">
+                                            <div class="content tab_1" type="item" dd_name="总榜" style="">
+                                                <div class="book_top " name="m403757_pid5290_5281_t9123">
+                                                    <style type="text/css">
+                                                    .hidden{display:none;}
+                                                    </style>
+                                                    <ul class="list_ab" id="component_403757__5290_5281_5279__5279" accordion="true" js="true" speed="0" area="0" rand="0" delay="0" action="hover" itemclass="" barclass="hidden" level="2" ddt-area="5279" dd_name="自动手风琴">
+                                                        {% for i in top1 %}
+                                                            <li class="line1 bar" type="bar">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <p class="name">{{i.BOOK.bookName}}</p>
+                                                            </li>
+                                                            <li class="line1 item" type="item" ddt-pit="1" dd_name="1" style="display: none;">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <a class="img" href="/book/{{i.BOOK.id}}" target="_blank">
+                                                                    <img src="../{{i.BOOK.bookPhoto}}" alt="{{i.BOOK.bookName}}">
+                                                                </a>
+                                                                <p class="name">
+                                                                    <a title="{{i.BOOK.bookName}}" href="/book/{{i.BOOK.id}}" target="_blank"style=" ">
+                                                                        {{i.BOOK.bookName}}
+                                                                    </a>
+                                                                </p>
+                                                                <p class="price">
+                                                                    <span class="rob">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.discount}}</span>
+                                                                    </span>
+                                                                    <span class="price_r">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.bookPrice}}</span>
+                                                                    </span>
+                                                                </p>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <a nname="" href="#" target="_blank" title="查看完整榜单&gt;&gt;" class="more_top">
+                                                        查看完整榜单&gt;&gt;
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="content tab_2" type="item" dd_name="童书" style="display: none;">
+                                                <div class="book_top " name="m403757_pid5290_5283_t9123">
+                                                    <style type="text/css">
+                                                    .hidden{display:none;}
+                                                    </style>
+                                                    <ul class="list_ab" id="component_403757__5290_5283_5279__5279" accordion="true" js="true" speed="0" area="0" rand="0" delay="0" action="hover" itemclass="" barclass="hidden" level="2" ddt-area="5279" dd_name="自动手风琴">
+                                                        {% for i in top2 %}
+                                                            <li class="line1 bar" type="bar">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <p class="name">{{i.BOOK.bookName}}</p>
+                                                            </li>
+                                                            <li class="line1 item" type="item" ddt-pit="1" dd_name="1" style="display: none;">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <a class="img" href="/book/{{i.BOOK.id}}" target="_blank">
+                                                                    <img src="../{{i.BOOK.bookPhoto}}" alt="{{i.BOOK.bookName}}">
+                                                                </a>
+                                                                <p class="name">
+                                                                    <a title="{{i.BOOK.bookName}}" href="/book/{{i.BOOK.id}}" target="_blank"style=" ">
+                                                                        {{i.BOOK.bookName}}
+                                                                    </a>
+                                                                </p>
+                                                                <p class="price">
+                                                                    <span class="rob">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.discount}}</span>
+                                                                    </span>
+                                                                    <span class="price_r">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.bookPrice}}</span>
+                                                                    </span>
+                                                                </p>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <a nname="" href="#" target="_blank" title="查看完整榜单&gt;&gt;" class="more_top">
+                                                        查看完整榜单&gt;&gt;
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="content tab_3" type="item" dd_name="青春" style="display: none;">
+                                                <div class="book_top " name="m403757_pid5290_5640_t9123">
+                                                    <style type="text/css">
+                                                    .hidden{display:none;}
+                                                    </style>
+                                                    <ul class="list_ab" id="component_403757__5290_5640_5279__5279" accordion="true" js="true" speed="0" area="0" rand="0" delay="0" action="hover" itemclass="" barclass="hidden" level="2" ddt-area="5279" dd_name="自动手风琴">
+                                                        {% for i in top3 %}
+                                                            <li class="line1 bar" type="bar">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <p class="name">{{i.BOOK.bookName}}</p>
+                                                            </li>
+                                                            <li class="line1 item" type="item" ddt-pit="1" dd_name="1" style="display: none;">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <a class="img" href="/book/{{i.BOOK.id}}" target="_blank">
+                                                                    <img src="../{{i.BOOK.bookPhoto}}" alt="{{i.BOOK.bookName}}">
+                                                                </a>
+                                                                <p class="name">
+                                                                    <a title="{{i.BOOK.bookName}}" href="/book/{{i.BOOK.id}}" target="_blank"style=" ">
+                                                                        {{i.BOOK.bookName}}
+                                                                    </a>
+                                                                </p>
+                                                                <p class="price">
+                                                                    <span class="rob">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.discount}}</span>
+                                                                    </span>
+                                                                    <span class="price_r">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.bookPrice}}</span>
+                                                                    </span>
+                                                                </p>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <a nname="" href="#" target="_blank" title="查看完整榜单&gt;&gt;" class="more_top">
+                                                        查看完整榜单&gt;&gt;
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="content tab_4" type="item" dd_name="教材" style="display: none;">
+                                                <div class="book_top " name="m403757_pid5290_5642_t9123">
+                                                    <style type="text/css">
+                                                    .hidden{display:none;}
+                                                    </style>
+                                                    <ul class="list_ab" id="component_403757__5290_5642_5279__5279" accordion="true" js="true" speed="0" area="0" rand="0" delay="0" action="hover" itemclass="" barclass="hidden" level="2" ddt-area="5279" dd_name="自动手风琴">
+                                                        {% for i in top4 %}
+                                                            <li class="line1 bar" type="bar">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <p class="name">{{i.BOOK.bookName}}</p>
+                                                            </li>
+                                                            <li class="line1 item" type="item" ddt-pit="1" dd_name="1" style="display: none;">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <a class="img" href="/book/{{i.BOOK.id}}" target="_blank">
+                                                                    <img src="../{{i.BOOK.bookPhoto}}" alt="{{i.BOOK.bookName}}">
+                                                                </a>
+                                                                <p class="name">
+                                                                    <a title="{{i.BOOK.bookName}}" href="/book/{{i.BOOK.id}}" target="_blank"style=" ">
+                                                                        {{i.BOOK.bookName}}
+                                                                    </a>
+                                                                </p>
+                                                                <p class="price">
+                                                                    <span class="rob">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.discount}}</span>
+                                                                    </span>
+                                                                    <span class="price_r">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.bookPrice}}</span>
+                                                                    </span>
+                                                                </p>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <a nname="" href="#" target="_blank" title="查看完整榜单&gt;&gt;" class="more_top">
+                                                        查看完整榜单&gt;&gt;
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="content tab_5" type="item" dd_name="外语" style="display: none;">
+                                                <div class="book_top " name="m403757_pid5290_5647_t9123">
+                                                    <style type="text/css">
+                                                    .hidden{display:none;}
+                                                    </style>
+                                                    <ul class="list_ab" id="component_403757__5290_5647_5279__5279" accordion="true" js="true" speed="0" area="0" rand="0" delay="0" action="hover" itemclass="" barclass="hidden" level="2" ddt-area="5279" dd_name="自动手风琴">
+                                                        {% for i in top5 %}
+                                                            <li class="line1 bar" type="bar">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <p class="name">{{i.BOOK.bookName}}</p>
+                                                            </li>
+                                                            <li class="line1 item" type="item" ddt-pit="1" dd_name="1" style="display: none;">
+                                                                <span class="num num1">{{i.NO}}</span>
+                                                                <a class="img" href="/book/{{i.BOOK.id}}" target="_blank">
+                                                                    <img src="../{{i.BOOK.bookPhoto}}" alt="{{i.BOOK.bookName}}">
+                                                                </a>
+                                                                <p class="name">
+                                                                    <a title="{{i.BOOK.bookName}}" href="/book/{{i.BOOK.id}}" target="_blank"style=" ">
+                                                                        {{i.BOOK.bookName}}
+                                                                    </a>
+                                                                </p>
+                                                                <p class="price">
+                                                                    <span class="rob">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.discount}}</span>
+                                                                    </span>
+                                                                    <span class="price_r">
+                                                                        <span class="sign">￥</span>
+                                                                        <span class="num">{{i.BOOK.bookPrice}}</span>
+                                                                    </span>
+                                                                </p>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <a nname="" href="#" target="_blank" title="查看完整榜单&gt;&gt;" class="more_top">
+                                                        查看完整榜单&gt;&gt;
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spacer c_spacer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="footer" dd_name="页尾"></div>
+                <div id="footer_end"></div>
+            </div>
+        </body>
+    </html>

@@ -1,0 +1,97 @@
+._citys {
+    width:400px; 
+    height:100%;
+    display: inline-block; 
+    position: relative; 
+    left: 500px;
+    top: 10px;
+}
+._citys span { 
+    color: #56b4f8; 
+    height: 15px; 
+    width: 15px; 
+    line-height: 15px; 
+    text-align: center; 
+    border-radius: 3px; 
+    position: absolute; 
+    right: 1em; 
+    top: 10px; 
+    border: 1px solid #56b4f8; 
+    cursor: pointer; 
+}
+._citys0 { 
+    width: 400px; 
+    height: 34px; 
+    display: inline-block; 
+    border-bottom: 2px solid #56b4f8; 
+    padding: 0; margin: 0; 
+    background-color: #fff;
+}
+._citys0 li { 
+    float:left; 
+    height:34px;
+    line-height: 34px;
+    overflow:hidden; 
+    font-size: 15px; 
+    color: #888; 
+    width: 80px; 
+    text-align: center; 
+    cursor: pointer; 
+}
+.citySel { 
+    background-color: #ff6347; 
+    color: #fff !important; 
+}
+._citys1 { 
+    width: 400px;
+    height:80%; 
+    display: inline-block; 
+    padding: 10px 0; overflow: auto;
+    background-color: #fff;
+}
+._citys1 a {  
+    height: 35px; 
+    display: block; 
+    color: #666; 
+    padding-left: 6px; 
+    margin-top: 3px; 
+    line-height: 35px; 
+    cursor: pointer; 
+    font-size: 13px; 
+    overflow: hidden; 
+}
+._citys1 a:hover { 
+    color: #fff; 
+    background-color: #56b4f8; 
+}
+li{
+    list-style-type: none;
+}
+
+#addressUpdate p{
+    font-size: 22px;
+    font-family: '楷体';
+    position: relative;
+    right: 200px;
+    top: 20px;
+}
+#addressUpdate form{
+    float: left;
+    position: relative;
+    top: 80px;
+    font-family: '楷体';
+    font-size: 20px;
+}
+.common{
+    display: inline-block;
+    width: 120px;
+}
+#city{
+    display: inline-block;
+    border:1.2px solid #8b8989;
+    border-radius: 5px;
+    font-size: 18px;
+    height: 25px;
+    min-width: 243px;
+    width: auto;
+}
